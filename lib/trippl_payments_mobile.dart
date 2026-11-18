@@ -58,3 +58,4 @@ export 'payment_core/payment_quotes.dart';
 export 'payment_core/payment_requests.dart';
 export 'payment_core/payment_credentials.dart';
 export 'payment_core/payment_adapter.dart';
+export 'payment_core/payment_statuses.dart';
