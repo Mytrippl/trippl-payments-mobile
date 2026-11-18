@@ -63,5 +63,6 @@
   "PaymentInvoiceFilter": "if(limit<1||limit>100||issuedFrom!=null&&issuedUntil!=null&&issuedUntil!.isBefore(issuedFrom!)||statuses.any((s)=>!{'draft','open','paid','void','uncollectible','unknown'}.contains(s)))",
   "PaymentInvoicePage": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||complete&&cursor!=null)",
   "PaymentStatementEntry": "if(!{'charge','refund','authorization','adjustment'}.contains(kind)||!{'pending','posted','reversed','unknown'}.contains(status))",
-  "PaymentStatement": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||periodEnd.isBefore(periodStart))"
+  "PaymentStatement": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||periodEnd.isBefore(periodStart))",
+  "PaymentStatementQuery": "if(periodEnd.isBefore(periodStart)||periodEnd.difference(periodStart).inDays>366||limit<1||limit>100)"
 }

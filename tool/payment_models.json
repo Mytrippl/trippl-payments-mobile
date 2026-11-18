@@ -4486,5 +4486,53 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentStatementQuery",
+    "statement_query",
+    [
+      [
+        "customerId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "currency",
+        "String",
+        true,
+        null
+      ],
+      [
+        "periodStart",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "periodEnd",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "includePending",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "orderIds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "limit",
+        "int",
+        false,
+        100
+      ]
+    ]
   ]
 ]
