@@ -89,5 +89,6 @@
   "PaymentDisputeEvidenceReference": "if(!{'test','live'}.contains(environment)||byteCount<1||byteCount>10000000||!{'application/pdf','image/jpeg','image/png'}.contains(mediaType)||!{'receipt','booking','correspondence','other'}.contains(category)||!RegExp(r'^[a-f0-9]{64}$').hasMatch(checksum))",
   "PaymentDisputeSummary": "if(maySubmitEvidence)",
   "PaymentSupportContext": "if(!{'test','live'}.contains(environment)||schemaVersion!=1||!{'payment','refund','invoice','dispute','plan'}.contains(topic))",
-  "PaymentSupportHandoff": "if(!{'test','live'}.contains(environment)||!expiresAt.isAfter(createdAt)||messageSent||!requiresUserAction)"
+  "PaymentSupportHandoff": "if(!{'test','live'}.contains(environment)||!expiresAt.isAfter(createdAt)||messageSent||!requiresUserAction)",
+  "PaymentActivityEntry": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'payment','refund','invoice','dispute','plan','receipt'}.contains(kind))"
 }
