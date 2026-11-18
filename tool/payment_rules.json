@@ -102,5 +102,6 @@
   "PaymentSessionContext": "if(!{'test','live'}.contains(environment)||generation<1||!expiresAt.isAfter(authenticatedAt))",
   "PaymentAccessPolicy": "if(revision<1||!expiresAt.isAfter(observedAt)||permissions.any((p)=>!{'billing.read','billing.review','invoices.read','plans.read','plans.review','refunds.read','refunds.review','disputes.read','support.review','activity.read','ledger.read'}.contains(p)))",
   "PaymentOperationTicket": "if(!{'test','live'}.contains(environment)||sessionGeneration<1||!expiresAt.isAfter(createdAt)||!{'billingReview','refundReview','planReview','supportReview'}.contains(kind)||!requiresUserReview)",
-  "PaymentOperationResult": "if(!{'test','live'}.contains(environment)||!expiresAt.isAfter(observedAt)||!{'acceptedForReview','rejected','pending','unknown'}.contains(state)||paymentMutationPerformed)"
+  "PaymentOperationResult": "if(!{'test','live'}.contains(environment)||!expiresAt.isAfter(observedAt)||!{'acceptedForReview','rejected','pending','unknown'}.contains(state)||paymentMutationPerformed)",
+  "PaymentNotificationPreference": "if(revision<1||quietStartHour>23||quietEndHour>23)"
 }
