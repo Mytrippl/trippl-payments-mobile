@@ -460,5 +460,59 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentBillingSummary",
+    "billing_summary",
+    [
+      [
+        "countryCode",
+        "String",
+        false,
+        null
+      ],
+      [
+        "postalCode",
+        "String",
+        false,
+        null
+      ],
+      [
+        "nameCollected",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "emailCollected",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "phoneCollected",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "addressCollected",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "source",
+        "String",
+        false,
+        "sdk"
+      ],
+      [
+        "revision",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]

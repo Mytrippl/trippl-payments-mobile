@@ -6,5 +6,6 @@
   "PaymentAdjustment": "if(revision<1||!{'tax','fee','discount','credit'}.contains(kind))",
   "PaymentOrder": "if(revision<1||updatedAt.isBefore(createdAt)||!{'draft','quoted','paymentPending','paid','cancelled','unknown'}.contains(status)||lines.map((l)=>l.id).toSet().length!=lines.length||adjustments.map((a)=>a.id).toSet().length!=adjustments.length)",
   "PaymentQuote": "if(revision<1||orderRevision<1||!expiresAt.isAfter(observedAt))",
-  "PaymentCustomerReference": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))"
+  "PaymentCustomerReference": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
+  "PaymentBillingSummary": "if(revision<1||!{'sdk','backend','unknown'}.contains(source)||countryCode!=null&&!RegExp(r'^[A-Z]{2}$').hasMatch(countryCode!))"
 }
