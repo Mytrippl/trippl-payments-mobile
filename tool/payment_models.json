@@ -2158,5 +2158,47 @@
         []
       ]
     ]
+  ],
+  [
+    "PaymentReceiptLine",
+    "receipt_line",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "label",
+        "String",
+        true,
+        null
+      ],
+      [
+        "amount",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "quantity",
+        "int",
+        false,
+        1
+      ],
+      [
+        "kind",
+        "String",
+        false,
+        "item"
+      ],
+      [
+        "orderLineId",
+        "String",
+        false,
+        null
+      ]
+    ]
   ]
 ]
