@@ -109,3 +109,4 @@ export 'payment_core/models/refund_eligibility.dart';
 export 'payment_core/models/refund_preview.dart';
 export 'payment_core/models/refund_submission.dart';
 export 'payment_core/models/refund_timeline_entry.dart';
+export 'payment_core/models/refund_timeline.dart';
