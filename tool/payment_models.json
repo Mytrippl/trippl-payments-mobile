@@ -1714,5 +1714,41 @@
         []
       ]
     ]
+  ],
+  [
+    "PaymentRetryPolicy",
+    "retry_policy",
+    [
+      [
+        "maximumReadAttempts",
+        "int",
+        false,
+        2
+      ],
+      [
+        "initialDelaySeconds",
+        "int",
+        false,
+        2
+      ],
+      [
+        "maximumDelaySeconds",
+        "int",
+        false,
+        30
+      ],
+      [
+        "allowMutationRetry",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "version",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
