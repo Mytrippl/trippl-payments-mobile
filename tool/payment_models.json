@@ -5278,5 +5278,65 @@
         false
       ]
     ]
+  ],
+  [
+    "PaymentPlanSchedule",
+    "plan_schedule",
+    [
+      [
+        "planId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "orderId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "generatedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "expiresAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "dueNowIds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "upcomingIds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "overdueIds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "timezone",
+        "String",
+        false,
+        "UTC"
+      ],
+      [
+        "mayChargeAutomatically",
+        "bool",
+        false,
+        false
+      ]
+    ]
   ]
 ]
