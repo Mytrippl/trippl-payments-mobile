@@ -56,5 +56,6 @@
   "PaymentBillingPatch": "if(expectedRevision<1||submitted||!{'test','live'}.contains(environment))",
   "PaymentTaxIdentity": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'pending','verified','unverified','unavailable'}.contains(status)||!RegExp(r'^[A-Z]{2}$').hasMatch(countryCode))",
   "PaymentTaxAssessment": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
-  "PaymentInvoiceLine": "if(quantity<1||quantity>100)"
+  "PaymentInvoiceLine": "if(quantity<1||quantity>100)",
+  "PaymentInvoiceTax": "if(rateBasisPoints>10000)"
 }

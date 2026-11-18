@@ -3886,5 +3886,59 @@
         null
       ]
     ]
+  ],
+  [
+    "PaymentInvoiceTax",
+    "invoice_tax",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "label",
+        "String",
+        true,
+        null
+      ],
+      [
+        "jurisdictionCode",
+        "String",
+        true,
+        null
+      ],
+      [
+        "taxableAmount",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "amount",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "rateBasisPoints",
+        "int",
+        true,
+        null
+      ],
+      [
+        "inclusive",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "taxIdentityId",
+        "String",
+        false,
+        null
+      ]
+    ]
   ]
 ]

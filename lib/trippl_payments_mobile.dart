@@ -81,3 +81,4 @@ export 'payment_core/models/billing_patch.dart';
 export 'payment_core/models/tax_identity.dart';
 export 'payment_core/models/tax_assessment.dart';
 export 'payment_core/models/invoice_line.dart';
+export 'payment_core/models/invoice_tax.dart';
