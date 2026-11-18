@@ -72,5 +72,6 @@
   "PaymentDepositTerms": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||depositBasisPoints<1||depositBasisPoints>10000)",
   "PaymentDepositQuote": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
   "PaymentInstallment": "if(sequence<1||sequence>24||automaticCharge||!{'scheduled','due','processing','paid','failed','cancelled','unknown'}.contains(status))",
-  "PaymentInstallmentPlan": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||termsRevision<1||installments.length>24||!{'proposed','active','completed','cancelled','unknown'}.contains(status))"
+  "PaymentInstallmentPlan": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||termsRevision<1||installments.length>24||!{'proposed','active','completed','cancelled','unknown'}.contains(status))",
+  "PaymentPlanConsent": "if(!{'test','live'}.contains(environment)||termsRevision<1||!expiresAt.isAfter(acceptedAt)||automaticChargeConsent||submitted)"
 }

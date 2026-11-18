@@ -99,3 +99,4 @@ export 'payment_core/models/deposit_quote.dart';
 export 'payment_core/models/installment.dart';
 export 'payment_core/models/installment_plan.dart';
 export 'payment_core/models/plan_assessment.dart';
+export 'payment_core/models/plan_consent.dart';
