@@ -79,5 +79,6 @@
   "PaymentPlanHistory": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
   "PaymentRefundRequestDraft": "if(!{'test','live'}.contains(environment)||expectedOrderRevision<1||submitted)",
   "PaymentRefundReason": "if(revision<1||!expiresAt.isAfter(observedAt))",
-  "PaymentRefundEligibility": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))"
+  "PaymentRefundEligibility": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
+  "PaymentRefundPreview": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'review','blocked','unknown'}.contains(status))"
 }
