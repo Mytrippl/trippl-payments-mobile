@@ -6100,5 +6100,59 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentDisputeEvent",
+    "dispute_event",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "disputeId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "occurredAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "status",
+        "String",
+        true,
+        null
+      ],
+      [
+        "sequence",
+        "int",
+        true,
+        null
+      ],
+      [
+        "label",
+        "String",
+        true,
+        null
+      ],
+      [
+        "reasonCode",
+        "String",
+        false,
+        null
+      ],
+      [
+        "serverVerified",
+        "bool",
+        false,
+        false
+      ]
+    ]
   ]
 ]
