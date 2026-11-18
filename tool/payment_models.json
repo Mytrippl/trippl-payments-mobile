@@ -202,5 +202,59 @@
         null
       ]
     ]
+  ],
+  [
+    "PaymentAdjustment",
+    "adjustment",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "kind",
+        "String",
+        true,
+        null
+      ],
+      [
+        "amount",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "included",
+        "bool",
+        false,
+        true
+      ],
+      [
+        "label",
+        "String",
+        false,
+        null
+      ],
+      [
+        "sourceReference",
+        "String",
+        false,
+        null
+      ],
+      [
+        "confirmed",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "revision",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]

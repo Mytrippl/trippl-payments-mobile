@@ -2,5 +2,6 @@
   "PaymentMoney": "if(!RegExp(r'^[A-Z]{3}$').hasMatch(currency)||decimals>4)",
   "PaymentCurrencyRule": "if(revision<1||decimals>4||stepMinor<1||operation!='charge'||!RegExp(r'^[A-Z]{3}$').hasMatch(currency)||!expiresAt.isAfter(observedAt)||minimumMinor!=null&&maximumMinor!=null&&minimumMinor!>maximumMinor!)",
   "PaymentCurrencyCatalog": "if(revision<1||!expiresAt.isAfter(observedAt)||!RegExp(r'^[A-Z]{2}$').hasMatch(merchantCountry)||rules.map((r)=>r.currency).toSet().length!=rules.length)",
-  "PaymentOrderLine": "if(quantity<1||quantity>100||!{'item','tax','fee','discount','credit'}.contains(kind))"
+  "PaymentOrderLine": "if(quantity<1||quantity>100||!{'item','tax','fee','discount','credit'}.contains(kind))",
+  "PaymentAdjustment": "if(revision<1||!{'tax','fee','discount','credit'}.contains(kind))"
 }
