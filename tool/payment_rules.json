@@ -75,5 +75,6 @@
   "PaymentInstallmentPlan": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||termsRevision<1||installments.length>24||!{'proposed','active','completed','cancelled','unknown'}.contains(status))",
   "PaymentPlanConsent": "if(!{'test','live'}.contains(environment)||termsRevision<1||!expiresAt.isAfter(acceptedAt)||automaticChargeConsent||submitted)",
   "PaymentPlanSchedule": "if(!expiresAt.isAfter(generatedAt)||timezone!='UTC'||mayChargeAutomatically)",
-  "PaymentPlanChange": "if(!{'test','live'}.contains(environment)||expectedRevision<1||submitted)"
+  "PaymentPlanChange": "if(!{'test','live'}.contains(environment)||expectedRevision<1||submitted)",
+  "PaymentPlanHistory": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))"
 }
