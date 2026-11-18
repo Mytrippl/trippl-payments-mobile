@@ -91,3 +91,4 @@ export 'payment_core/models/statement_entry.dart';
 export 'payment_core/models/statement.dart';
 export 'payment_core/models/statement_query.dart';
 export 'payment_core/models/statement_export.dart';
+export 'payment_core/models/fx_rate.dart';
