@@ -7,3 +7,4 @@ export 'payment_core/models/order_line.dart';
 export 'payment_core/models/adjustment.dart';
 export 'payment_core/models/order.dart';
 export 'payment_core/models/quote.dart';
+export 'payment_core/models/customer_reference.dart';

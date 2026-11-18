@@ -406,5 +406,59 @@
         []
       ]
     ]
+  ],
+  [
+    "PaymentCustomerReference",
+    "customer_reference",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "customerId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "observedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "expiresAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "environment",
+        "String",
+        true,
+        null
+      ],
+      [
+        "serverVerified",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "revision",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
