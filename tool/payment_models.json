@@ -94,5 +94,59 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentCurrencyCatalog",
+    "currency_catalog",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "merchantCountry",
+        "String",
+        true,
+        null
+      ],
+      [
+        "observedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "expiresAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "rules",
+        "List<PaymentCurrencyRule>",
+        false,
+        []
+      ],
+      [
+        "serverVerified",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "revision",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
