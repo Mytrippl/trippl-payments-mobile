@@ -2554,5 +2554,53 @@
         true
       ]
     ]
+  ],
+  [
+    "PaymentMethodSelection",
+    "method_selection",
+    [
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "customerId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "updatedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "methodId",
+        "String",
+        false,
+        null
+      ],
+      [
+        "kind",
+        "String",
+        false,
+        "newCard"
+      ],
+      [
+        "environment",
+        "String",
+        true,
+        null
+      ],
+      [
+        "revision",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]

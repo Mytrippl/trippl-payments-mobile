@@ -40,3 +40,4 @@ export 'payment_core/models/refund_reference.dart';
 export 'payment_core/models/refund_summary.dart';
 export 'payment_core/models/amount_breakdown.dart';
 export 'payment_core/models/amount_assessment.dart';
+export 'payment_core/models/method_selection.dart';
