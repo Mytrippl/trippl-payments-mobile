@@ -143,3 +143,4 @@ export 'payment_core/payment_foreign_exchange.dart';
 export 'payment_core/payment_deposits.dart';
 export 'payment_core/payment_installments.dart';
 export 'payment_core/payment_plan_consent.dart';
+export 'payment_core/payment_plan_changes.dart';
