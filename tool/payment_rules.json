@@ -90,5 +90,6 @@
   "PaymentDisputeSummary": "if(maySubmitEvidence)",
   "PaymentSupportContext": "if(!{'test','live'}.contains(environment)||schemaVersion!=1||!{'payment','refund','invoice','dispute','plan'}.contains(topic))",
   "PaymentSupportHandoff": "if(!{'test','live'}.contains(environment)||!expiresAt.isAfter(createdAt)||messageSent||!requiresUserAction)",
-  "PaymentActivityEntry": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'payment','refund','invoice','dispute','plan','receipt'}.contains(kind))"
+  "PaymentActivityEntry": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'payment','refund','invoice','dispute','plan','receipt'}.contains(kind))",
+  "PaymentActivityFilter": "if(limit<1||limit>100||from!=null&&until!=null&&until!.isBefore(from!)||kinds.any((k)=>!{'payment','refund','invoice','dispute','plan','receipt'}.contains(k)))"
 }

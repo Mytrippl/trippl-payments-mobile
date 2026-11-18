@@ -6514,5 +6514,59 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentActivityFilter",
+    "activity_filter",
+    [
+      [
+        "kinds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "statuses",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "orderIds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "from",
+        "instant",
+        false,
+        null
+      ],
+      [
+        "until",
+        "instant",
+        false,
+        null
+      ],
+      [
+        "currency",
+        "String",
+        false,
+        null
+      ],
+      [
+        "limit",
+        "int",
+        false,
+        50
+      ],
+      [
+        "newestFirst",
+        "bool",
+        false,
+        true
+      ]
+    ]
   ]
 ]
