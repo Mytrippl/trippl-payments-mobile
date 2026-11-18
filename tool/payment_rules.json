@@ -26,5 +26,6 @@
   "PaymentError": "if(!RegExp(r'^[A-Za-z0-9_-]{1,80}$').hasMatch(code)||declineCode!=null&&!RegExp(r'^[A-Za-z0-9_-]{1,80}$').hasMatch(declineCode!))",
   "PaymentRetryPolicy": "if(version!=1||maximumReadAttempts<1||maximumReadAttempts>3||initialDelaySeconds<1||maximumDelaySeconds<initialDelaySeconds||maximumDelaySeconds>120||allowMutationRetry)",
   "PaymentReadPolicy": "if(version!=1||timeoutSeconds<1||timeoutSeconds>120||maximumInflight<1||maximumInflight>8||maximumAgeSeconds<1||maximumAgeSeconds>3600||maximumPages<1||maximumPages>20||maximumRecords<1||maximumRecords>100)",
-  "PaymentReadRequest": "if(!{'intent','methods','receipt','currencies','refunds'}.contains(mode)||!{'test','live'}.contains(environment)||limit<1||limit>100)"
+  "PaymentReadRequest": "if(!{'intent','methods','receipt','currencies','refunds'}.contains(mode)||!{'test','live'}.contains(environment)||limit<1||limit>100)",
+  "PaymentReadPage": "if(!expiresAt.isAfter(observedAt)||complete&&cursor!=null||!{'test','live'}.contains(environment))"
 }
