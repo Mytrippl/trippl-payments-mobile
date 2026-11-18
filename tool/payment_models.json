@@ -1750,5 +1750,47 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentReadPolicy",
+    "read_policy",
+    [
+      [
+        "timeoutSeconds",
+        "int",
+        false,
+        15
+      ],
+      [
+        "maximumInflight",
+        "int",
+        false,
+        4
+      ],
+      [
+        "maximumAgeSeconds",
+        "int",
+        false,
+        300
+      ],
+      [
+        "maximumPages",
+        "int",
+        false,
+        5
+      ],
+      [
+        "maximumRecords",
+        "int",
+        false,
+        100
+      ],
+      [
+        "version",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
