@@ -145,3 +145,4 @@ export 'payment_core/payment_installments.dart';
 export 'payment_core/payment_plan_consent.dart';
 export 'payment_core/payment_plan_changes.dart';
 export 'payment_core/payment_refund_drafts.dart';
+export 'payment_core/payment_refund_eligibility.dart';
