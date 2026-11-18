@@ -14,3 +14,4 @@ export 'payment_core/models/wallet_capability.dart';
 export 'payment_core/models/sdk_configuration.dart';
 export 'payment_core/models/credentials_reference.dart';
 export 'payment_core/models/checkout_request.dart';
+export 'payment_core/models/allocation.dart';
