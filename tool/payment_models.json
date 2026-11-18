@@ -4762,5 +4762,65 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentFxDisclosure",
+    "fx_disclosure",
+    [
+      [
+        "quoteId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "orderId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "sourceAmount",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "displayAmount",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "fee",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "expiresAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "label",
+        "String",
+        true,
+        null
+      ],
+      [
+        "displayOnly",
+        "bool",
+        false,
+        true
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
+      ]
+    ]
   ]
 ]

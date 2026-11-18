@@ -67,5 +67,6 @@
   "PaymentStatementQuery": "if(periodEnd.isBefore(periodStart)||periodEnd.difference(periodStart).inDays>366||limit<1||limit>100)",
   "PaymentStatementExport": "if(!{'test','live'}.contains(environment)||!expiresAt.isAfter(createdAt)||format!='csv'||rowCount>100||paymentProof)",
   "PaymentFxRate": "if(revision<1||!expiresAt.isAfter(observedAt)||numerator<1||numerator>100000000||denominator<1||denominator>100000000||baseCurrency==quoteCurrency)",
-  "PaymentFxQuote": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'floor','halfUp','ceil'}.contains(rounding)||!chargeCurrencyUnchanged)"
+  "PaymentFxQuote": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'floor','halfUp','ceil'}.contains(rounding)||!chargeCurrencyUnchanged)",
+  "PaymentFxDisclosure": "if(!displayOnly)"
 }
