@@ -64,5 +64,6 @@
   "PaymentInvoicePage": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||complete&&cursor!=null)",
   "PaymentStatementEntry": "if(!{'charge','refund','authorization','adjustment'}.contains(kind)||!{'pending','posted','reversed','unknown'}.contains(status))",
   "PaymentStatement": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||periodEnd.isBefore(periodStart))",
-  "PaymentStatementQuery": "if(periodEnd.isBefore(periodStart)||periodEnd.difference(periodStart).inDays>366||limit<1||limit>100)"
+  "PaymentStatementQuery": "if(periodEnd.isBefore(periodStart)||periodEnd.difference(periodStart).inDays>366||limit<1||limit>100)",
+  "PaymentStatementExport": "if(!{'test','live'}.contains(environment)||!expiresAt.isAfter(createdAt)||format!='csv'||rowCount>100||paymentProof)"
 }
