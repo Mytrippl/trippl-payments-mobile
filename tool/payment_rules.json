@@ -4,5 +4,6 @@
   "PaymentCurrencyCatalog": "if(revision<1||!expiresAt.isAfter(observedAt)||!RegExp(r'^[A-Z]{2}$').hasMatch(merchantCountry)||rules.map((r)=>r.currency).toSet().length!=rules.length)",
   "PaymentOrderLine": "if(quantity<1||quantity>100||!{'item','tax','fee','discount','credit'}.contains(kind))",
   "PaymentAdjustment": "if(revision<1||!{'tax','fee','discount','credit'}.contains(kind))",
-  "PaymentOrder": "if(revision<1||updatedAt.isBefore(createdAt)||!{'draft','quoted','paymentPending','paid','cancelled','unknown'}.contains(status)||lines.map((l)=>l.id).toSet().length!=lines.length||adjustments.map((a)=>a.id).toSet().length!=adjustments.length)"
+  "PaymentOrder": "if(revision<1||updatedAt.isBefore(createdAt)||!{'draft','quoted','paymentPending','paid','cancelled','unknown'}.contains(status)||lines.map((l)=>l.id).toSet().length!=lines.length||adjustments.map((a)=>a.id).toSet().length!=adjustments.length)",
+  "PaymentQuote": "if(revision<1||orderRevision<1||!expiresAt.isAfter(observedAt))"
 }
