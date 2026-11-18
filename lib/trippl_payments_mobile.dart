@@ -115,3 +115,4 @@ export 'payment_core/models/dispute_event.dart';
 export 'payment_core/models/dispute_evidence_reference.dart';
 export 'payment_core/models/dispute_summary.dart';
 export 'payment_core/models/support_context.dart';
+export 'payment_core/models/support_handoff.dart';
