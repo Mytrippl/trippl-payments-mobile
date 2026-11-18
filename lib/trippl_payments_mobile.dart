@@ -118,3 +118,4 @@ export 'payment_core/models/support_context.dart';
 export 'payment_core/models/support_handoff.dart';
 export 'payment_core/models/activity_entry.dart';
 export 'payment_core/models/activity_filter.dart';
+export 'payment_core/models/activity_page.dart';
