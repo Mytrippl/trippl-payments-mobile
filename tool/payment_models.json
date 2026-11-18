@@ -5338,5 +5338,65 @@
         false
       ]
     ]
+  ],
+  [
+    "PaymentPlanChange",
+    "plan_change",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "environment",
+        "String",
+        true,
+        null
+      ],
+      [
+        "planId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "expectedRevision",
+        "int",
+        true,
+        null
+      ],
+      [
+        "replacement",
+        "PaymentInstallmentPlan",
+        true,
+        null
+      ],
+      [
+        "reasonCode",
+        "String",
+        true,
+        null
+      ],
+      [
+        "createdAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "submitted",
+        "bool",
+        false,
+        false
+      ]
+    ]
   ]
 ]
