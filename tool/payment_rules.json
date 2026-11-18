@@ -83,5 +83,6 @@
   "PaymentRefundPreview": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'review','blocked','unknown'}.contains(status))",
   "PaymentRefundSubmission": "if(!{'test','live'}.contains(environment)||!expiresAt.isAfter(createdAt)||!requiresBackendReview||refundCreated)",
   "PaymentRefundTimelineEntry": "if(sequence<1||!{'requested','review','pending','succeeded','failed','cancelled','unknown'}.contains(state)||source!='backend')",
-  "PaymentRefundTimeline": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))"
+  "PaymentRefundTimeline": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
+  "PaymentDispute": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'warning','needs_response','under_review','won','lost','closed','unknown'}.contains(status)||responseDueAt!=null&&responseDueAt!.isBefore(openedAt))"
 }
