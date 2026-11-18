@@ -50,3 +50,4 @@ export 'payment_core/models/privacy_policy.dart';
 export 'payment_core/models/audit_event.dart';
 export 'payment_core/models/capabilities.dart';
 export 'payment_core/models/environment.dart';
+export 'payment_core/payment_guard.dart';
