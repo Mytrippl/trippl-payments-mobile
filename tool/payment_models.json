@@ -3826,5 +3826,65 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentInvoiceLine",
+    "invoice_line",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "description",
+        "String",
+        true,
+        null
+      ],
+      [
+        "quantity",
+        "int",
+        true,
+        null
+      ],
+      [
+        "unitAmount",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "netAmount",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "taxAmount",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "total",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "taxInclusive",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "orderLineId",
+        "String",
+        false,
+        null
+      ]
+    ]
   ]
 ]
