@@ -4996,5 +4996,65 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentInstallment",
+    "installment",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "sequence",
+        "int",
+        true,
+        null
+      ],
+      [
+        "amount",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "dueAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "status",
+        "String",
+        true,
+        null
+      ],
+      [
+        "intentId",
+        "String",
+        false,
+        null
+      ],
+      [
+        "paidAt",
+        "instant",
+        false,
+        null
+      ],
+      [
+        "requiresCustomerAction",
+        "bool",
+        false,
+        true
+      ],
+      [
+        "automaticCharge",
+        "bool",
+        false,
+        false
+      ]
+    ]
   ]
 ]

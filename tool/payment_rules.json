@@ -70,5 +70,6 @@
   "PaymentFxQuote": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'floor','halfUp','ceil'}.contains(rounding)||!chargeCurrencyUnchanged)",
   "PaymentFxDisclosure": "if(!displayOnly)",
   "PaymentDepositTerms": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||depositBasisPoints<1||depositBasisPoints>10000)",
-  "PaymentDepositQuote": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))"
+  "PaymentDepositQuote": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
+  "PaymentInstallment": "if(sequence<1||sequence>24||automaticCharge||!{'scheduled','due','processing','paid','failed','cancelled','unknown'}.contains(status))"
 }

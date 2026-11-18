@@ -96,3 +96,4 @@ export 'payment_core/models/fx_quote.dart';
 export 'payment_core/models/fx_disclosure.dart';
 export 'payment_core/models/deposit_terms.dart';
 export 'payment_core/models/deposit_quote.dart';
+export 'payment_core/models/installment.dart';
