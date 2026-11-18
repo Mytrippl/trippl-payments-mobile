@@ -68,7 +68,7 @@ Future<bool> presentStripePaymentSheet(
     await Stripe.instance.presentPaymentSheet();
     return true;
   } catch (e) {
-    print("STRIPE ERROR: $e");
+    debugPrint('Payment SDK operation failed');
     rethrow;
   }
 }

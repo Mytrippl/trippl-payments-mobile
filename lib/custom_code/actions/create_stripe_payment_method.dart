@@ -24,7 +24,7 @@ Future<String?> createStripePaymentMethod() async {
 
     return paymentMethod.id; // e.g. "pm_12345"
   } catch (e) {
-    debugPrint('Stripe createPaymentMethod error: $e');
+    debugPrint('Payment SDK operation failed');
     return null;
   }
 }
