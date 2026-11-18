@@ -1972,5 +1972,59 @@
         "read"
       ]
     ]
+  ],
+  [
+    "PaymentReadState",
+    "read_state",
+    [
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "requestFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "updatedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "state",
+        "String",
+        true,
+        null
+      ],
+      [
+        "page",
+        "PaymentReadPage",
+        false,
+        null
+      ],
+      [
+        "failure",
+        "PaymentReadFailure",
+        false,
+        null
+      ],
+      [
+        "generation",
+        "int",
+        false,
+        1
+      ],
+      [
+        "attempt",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
