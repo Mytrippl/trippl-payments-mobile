@@ -63,3 +63,4 @@ export 'payment_core/payment_verification.dart';
 export 'payment_core/payment_returns.dart';
 export 'payment_core/payment_errors.dart';
 export 'payment_core/payment_methods.dart';
+export 'payment_core/payment_configuration.dart';
