@@ -2908,5 +2908,41 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentPrivacyPolicy",
+    "privacy_policy",
+    [
+      [
+        "persistPendingReferences",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "persistMethodReferences",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "maximumAgeHours",
+        "int",
+        false,
+        24
+      ],
+      [
+        "maximumRecords",
+        "int",
+        false,
+        20
+      ],
+      [
+        "version",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
