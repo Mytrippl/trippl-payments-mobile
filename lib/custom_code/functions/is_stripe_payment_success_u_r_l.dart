@@ -15,8 +15,11 @@ import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
+// Navigation marker only. Confirm the payment through the backend.
 bool isStripePaymentSuccessURL(String currentUrl) {
-  if (currentUrl.isEmpty) return false;
-
-  return currentUrl.contains('/stripe-payment-success');
+  final uri = Uri.tryParse(currentUrl);
+  return uri != null &&
+      {'https', 'mytrippl'}.contains(uri.scheme) &&
+      uri.host.isNotEmpty && uri.userInfo.isEmpty &&
+      uri.path == '/stripe-payment-success';
 }

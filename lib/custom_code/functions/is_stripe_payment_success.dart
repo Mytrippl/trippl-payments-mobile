@@ -15,10 +15,11 @@ import '/backend/schema/structs/index.dart';
 import '/backend/schema/enums/enums.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
+// Navigation marker only. This is not payment or booking confirmation.
 bool isStripePaymentSuccess(String currentUrl) {
-  if (currentUrl.isEmpty) return false;
-
-  return currentUrl.contains(
-    'status=success',
-  );
+  final uri = Uri.tryParse(currentUrl);
+  return uri != null && {'https', 'mytrippl'}.contains(uri.scheme) &&
+      uri.host.isNotEmpty && uri.userInfo.isEmpty &&
+      uri.queryParametersAll['status']?.length == 1 &&
+      uri.queryParameters['status'] == 'success';
 }

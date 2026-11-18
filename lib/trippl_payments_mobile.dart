@@ -60,3 +60,4 @@ export 'payment_core/payment_credentials.dart';
 export 'payment_core/payment_adapter.dart';
 export 'payment_core/payment_statuses.dart';
 export 'payment_core/payment_verification.dart';
+export 'payment_core/payment_returns.dart';
