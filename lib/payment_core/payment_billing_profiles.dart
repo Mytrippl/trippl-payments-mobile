@@ -56,7 +56,7 @@ class PaymentBillingProfiles {
       now: now,
     );
     final before = profile.address.toJson(), after = address.toJson();
-    final changed = after.keys
+    final changed = {...before.keys, ...after.keys}
         .where(
           (k) =>
               !{'revision', 'updatedAt', 'id'}.contains(k) &&

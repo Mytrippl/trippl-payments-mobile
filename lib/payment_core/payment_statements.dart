@@ -57,6 +57,7 @@ class PaymentStatements {
 
   static Map<String, PaymentMoney> totals(PaymentStatement statement) {
     PaymentGuard.record(statement.validate());
+    PaymentAccountGuard.currencyCode(statement.currency);
     final first =
         statement.entries.firstOrNull?.amount ??
         PaymentMoney(currency: statement.currency, amountMinor: 0);

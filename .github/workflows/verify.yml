@@ -20,4 +20,6 @@ jobs:
       - run: python3 tool/source_inventory.py
       - run: mkdir -p .dart_tool/browser && dart compile js -O2 tool/browser_smoke.dart -o .dart_tool/browser/payments.js
       - run: node -e 'global.self = global; require("./.dart_tool/browser/payments.js");'
+      - run: dart compile js -O2 tool/account_smoke.dart -o .dart_tool/browser/account.js
+      - run: node -e 'global.self = global; require("./.dart_tool/browser/account.js");'
       - run: python3 tool/package_source.py --output dist
