@@ -29,5 +29,6 @@
   "PaymentReadRequest": "if(!{'intent','methods','receipt','currencies','refunds'}.contains(mode)||!{'test','live'}.contains(environment)||limit<1||limit>100)",
   "PaymentReadPage": "if(!expiresAt.isAfter(observedAt)||complete&&cursor!=null||!{'test','live'}.contains(environment))",
   "PaymentReadFailure": "if(operation!='read'||!RegExp(r'^[A-Za-z0-9_-]{1,80}$').hasMatch(code)||retryAfterSeconds!=null&&retryAfterSeconds!>120)",
-  "PaymentReadState": "if(generation<1||attempt<1||attempt>3||!{'loading','ready','failed','cancelled'}.contains(state)||state=='ready'&&page==null||state=='failed'&&failure==null)"
+  "PaymentReadState": "if(generation<1||attempt<1||attempt>3||!{'loading','ready','failed','cancelled'}.contains(state)||state=='ready'&&page==null||state=='failed'&&failure==null)",
+  "PaymentCheckoutState": "if(revision<1||!{'idle','preparing','ready','presenting','verifying','paid','pending','authorized','cancelled','failed','uncertain'}.contains(state))"
 }
