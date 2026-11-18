@@ -140,3 +140,4 @@ export 'payment_core/payment_invoices.dart';
 export 'payment_core/payment_invoice_reader.dart';
 export 'payment_core/payment_statements.dart';
 export 'payment_core/payment_foreign_exchange.dart';
+export 'payment_core/payment_deposits.dart';
