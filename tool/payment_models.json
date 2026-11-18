@@ -7186,5 +7186,65 @@
         true
       ]
     ]
+  ],
+  [
+    "PaymentSessionContext",
+    "session_context",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "environment",
+        "String",
+        true,
+        null
+      ],
+      [
+        "customerId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "authenticatedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "expiresAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "generation",
+        "int",
+        true,
+        null
+      ],
+      [
+        "permissions",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "active",
+        "bool",
+        false,
+        true
+      ]
+    ]
   ]
 ]
