@@ -2668,5 +2668,65 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentResumeRequest",
+    "resume_request",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "orderId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "orderFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "intentId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "attemptId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "environment",
+        "String",
+        true,
+        null
+      ],
+      [
+        "createdAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "readOnly",
+        "bool",
+        false,
+        true
+      ]
+    ]
   ]
 ]

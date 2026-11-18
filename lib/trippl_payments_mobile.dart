@@ -42,3 +42,4 @@ export 'payment_core/models/amount_breakdown.dart';
 export 'payment_core/models/amount_assessment.dart';
 export 'payment_core/models/method_selection.dart';
 export 'payment_core/models/pending_reference.dart';
+export 'payment_core/models/resume_request.dart';
