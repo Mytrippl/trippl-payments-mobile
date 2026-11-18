@@ -3538,5 +3538,59 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentBillingValidation",
+    "billing_validation",
+    [
+      [
+        "addressId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "evaluatedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "ruleRevision",
+        "int",
+        true,
+        null
+      ],
+      [
+        "valid",
+        "bool",
+        true,
+        null
+      ],
+      [
+        "missingFields",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "requiresBackendValidation",
+        "bool",
+        false,
+        true
+      ],
+      [
+        "normalizedPostalCode",
+        "String",
+        false,
+        "unknown"
+      ]
+    ]
   ]
 ]

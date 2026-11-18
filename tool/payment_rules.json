@@ -51,5 +51,6 @@
   "PaymentReceiptPolicy": "if(version!=1||allowedHosts.isEmpty||maximumAgeSeconds<1||maximumAgeSeconds>3600||allowedHosts.any((h)=>h.isEmpty||h!=h.toLowerCase()||h.contains('/')||h.contains('*'))||allowedPathPrefixes.any((p)=>!p.startsWith('/')||p.contains('..')))",
   "PaymentCountryAddressRule": "if(revision<1||!expiresAt.isAfter(observedAt)||!RegExp(r'^[A-Z]{2}$').hasMatch(countryCode)||maximumLineLength<1||maximumLineLength>200||!{'none','digits','alphanumeric','uk','us','ca'}.contains(postalPattern))",
   "PaymentBillingAddress": "if(revision<1||!RegExp(r'^[A-Z]{2}$').hasMatch(countryCode))",
-  "PaymentBillingProfile": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))"
+  "PaymentBillingProfile": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
+  "PaymentBillingValidation": "if(ruleRevision<1||valid&&missingFields.isNotEmpty||!requiresBackendValidation)"
 }
