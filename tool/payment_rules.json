@@ -77,5 +77,6 @@
   "PaymentPlanSchedule": "if(!expiresAt.isAfter(generatedAt)||timezone!='UTC'||mayChargeAutomatically)",
   "PaymentPlanChange": "if(!{'test','live'}.contains(environment)||expectedRevision<1||submitted)",
   "PaymentPlanHistory": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
-  "PaymentRefundRequestDraft": "if(!{'test','live'}.contains(environment)||expectedOrderRevision<1||submitted)"
+  "PaymentRefundRequestDraft": "if(!{'test','live'}.contains(environment)||expectedOrderRevision<1||submitted)",
+  "PaymentRefundReason": "if(revision<1||!expiresAt.isAfter(observedAt))"
 }
