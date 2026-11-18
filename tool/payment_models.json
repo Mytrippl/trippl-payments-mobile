@@ -2506,5 +2506,53 @@
         []
       ]
     ]
+  ],
+  [
+    "PaymentAmountAssessment",
+    "amount_assessment",
+    [
+      [
+        "orderId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "evaluatedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "valid",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "expected",
+        "PaymentMoney",
+        false,
+        null
+      ],
+      [
+        "received",
+        "PaymentMoney",
+        false,
+        null
+      ],
+      [
+        "requiresServerReview",
+        "bool",
+        false,
+        true
+      ]
+    ]
   ]
 ]
