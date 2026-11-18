@@ -18,3 +18,4 @@ export 'payment_core/models/allocation.dart';
 export 'payment_core/models/attempt.dart';
 export 'payment_core/models/intent.dart';
 export 'payment_core/models/intent_assessment.dart';
+export 'payment_core/models/verification_request.dart';
