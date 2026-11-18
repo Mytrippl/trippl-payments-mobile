@@ -84,3 +84,4 @@ export 'payment_core/models/invoice_line.dart';
 export 'payment_core/models/invoice_tax.dart';
 export 'payment_core/models/invoice.dart';
 export 'payment_core/models/invoice_document.dart';
+export 'payment_core/models/invoice_filter.dart';

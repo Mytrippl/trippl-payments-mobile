@@ -4144,5 +4144,59 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentInvoiceFilter",
+    "invoice_filter",
+    [
+      [
+        "customerId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "orderIds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "statuses",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "currency",
+        "String",
+        false,
+        null
+      ],
+      [
+        "issuedFrom",
+        "instant",
+        false,
+        null
+      ],
+      [
+        "issuedUntil",
+        "instant",
+        false,
+        null
+      ],
+      [
+        "includeDrafts",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "limit",
+        "int",
+        false,
+        20
+      ]
+    ]
   ]
 ]
