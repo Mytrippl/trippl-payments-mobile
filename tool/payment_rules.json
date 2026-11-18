@@ -58,5 +58,6 @@
   "PaymentTaxAssessment": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
   "PaymentInvoiceLine": "if(quantity<1||quantity>100)",
   "PaymentInvoiceTax": "if(rateBasisPoints>10000)",
-  "PaymentInvoice": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'draft','open','paid','void','uncollectible','unknown'}.contains(status)||dueAt!=null&&dueAt!.isBefore(issuedAt))"
+  "PaymentInvoice": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'draft','open','paid','void','uncollectible','unknown'}.contains(status)||dueAt!=null&&dueAt!.isBefore(issuedAt))",
+  "PaymentInvoiceDocument": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||mediaType!='application/pdf'||byteCount<1||byteCount>20000000||!RegExp(r'^[a-f0-9]{64}$').hasMatch(checksum))"
 }
