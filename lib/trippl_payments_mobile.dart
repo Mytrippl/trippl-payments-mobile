@@ -16,3 +16,4 @@ export 'payment_core/models/credentials_reference.dart';
 export 'payment_core/models/checkout_request.dart';
 export 'payment_core/models/allocation.dart';
 export 'payment_core/models/attempt.dart';
+export 'payment_core/models/intent.dart';
