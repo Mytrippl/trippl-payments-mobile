@@ -1,1 +1,3 @@
-{}
+{
+  "PaymentMoney": "if(!RegExp(r'^[A-Z]{3}$').hasMatch(currency)||decimals>4)"
+}
