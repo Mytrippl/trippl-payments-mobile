@@ -18,5 +18,6 @@
   "PaymentIntent": "if(revision<1||orderRevision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
   "PaymentVerificationRequest": "if(minimumRevision<1||!{'test','live'}.contains(environment))",
   "PaymentWebhookAcknowledgement": "if(revision<1||verifiedAt.isBefore(receivedAt))",
-  "PaymentOrderBinding": "if(orderRevision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))"
+  "PaymentOrderBinding": "if(orderRevision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
+  "PaymentVerification": "if(revision<1||!expiresAt.isAfter(observedAt))"
 }

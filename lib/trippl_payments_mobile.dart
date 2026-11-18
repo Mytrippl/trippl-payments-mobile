@@ -21,3 +21,4 @@ export 'payment_core/models/intent_assessment.dart';
 export 'payment_core/models/verification_request.dart';
 export 'payment_core/models/webhook_acknowledgement.dart';
 export 'payment_core/models/order_binding.dart';
+export 'payment_core/models/verification.dart';
