@@ -33,3 +33,4 @@ export 'payment_core/models/read_page.dart';
 export 'payment_core/models/read_failure.dart';
 export 'payment_core/models/read_state.dart';
 export 'payment_core/models/checkout_state.dart';
+export 'payment_core/models/checkout_result.dart';

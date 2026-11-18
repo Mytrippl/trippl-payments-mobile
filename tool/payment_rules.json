@@ -30,5 +30,6 @@
   "PaymentReadPage": "if(!expiresAt.isAfter(observedAt)||complete&&cursor!=null||!{'test','live'}.contains(environment))",
   "PaymentReadFailure": "if(operation!='read'||!RegExp(r'^[A-Za-z0-9_-]{1,80}$').hasMatch(code)||retryAfterSeconds!=null&&retryAfterSeconds!>120)",
   "PaymentReadState": "if(generation<1||attempt<1||attempt>3||!{'loading','ready','failed','cancelled'}.contains(state)||state=='ready'&&page==null||state=='failed'&&failure==null)",
-  "PaymentCheckoutState": "if(revision<1||!{'idle','preparing','ready','presenting','verifying','paid','pending','authorized','cancelled','failed','uncertain'}.contains(state))"
+  "PaymentCheckoutState": "if(revision<1||!{'idle','preparing','ready','presenting','verifying','paid','pending','authorized','cancelled','failed','uncertain'}.contains(state))",
+  "PaymentCheckoutResult": "if(paid&&!serverVerified||bookingConfirmed&&!paid)"
 }
