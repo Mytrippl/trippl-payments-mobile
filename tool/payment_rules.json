@@ -33,5 +33,6 @@
   "PaymentCheckoutState": "if(revision<1||!{'idle','preparing','ready','presenting','verifying','paid','pending','authorized','cancelled','failed','uncertain'}.contains(state))",
   "PaymentCheckoutResult": "if(paid&&!serverVerified||bookingConfirmed&&!paid)",
   "PaymentReceiptLine": "if(quantity<1||quantity>100||!{'item','tax','fee','discount','credit'}.contains(kind))",
-  "PaymentReceipt": "if(revision<1||!expiresAt.isAfter(observedAt)||issuedAt.isAfter(observedAt)||!{'test','live'}.contains(environment))"
+  "PaymentReceipt": "if(revision<1||!expiresAt.isAfter(observedAt)||issuedAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
+  "PaymentRefundReference": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'pending','requires_action','succeeded','failed','canceled','unknown'}.contains(status)||!{'test','live'}.contains(environment))"
 }
