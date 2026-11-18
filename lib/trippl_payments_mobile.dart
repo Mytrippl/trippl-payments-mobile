@@ -74,3 +74,4 @@ export 'payment_core/payment_presentation.dart';
 export 'payment_core/payment_sdk.dart';
 export 'payment_core/payment_checkout.dart';
 export 'payment_core/models/country_address_rule.dart';
+export 'payment_core/models/billing_address.dart';

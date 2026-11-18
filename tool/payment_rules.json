@@ -49,5 +49,6 @@
   "PaymentCheckoutReview": "if(revision<1||quoteRevision<1||!expiresAt.isAfter(reviewedAt))",
   "PaymentReadCollection": "if(pages<1||pages>20||!expiresAt.isAfter(collectedAt)||!{'intent','methods','receipt','refunds','currencies'}.contains(mode)||!{'test','live'}.contains(environment))",
   "PaymentReceiptPolicy": "if(version!=1||allowedHosts.isEmpty||maximumAgeSeconds<1||maximumAgeSeconds>3600||allowedHosts.any((h)=>h.isEmpty||h!=h.toLowerCase()||h.contains('/')||h.contains('*'))||allowedPathPrefixes.any((p)=>!p.startsWith('/')||p.contains('..')))",
-  "PaymentCountryAddressRule": "if(revision<1||!expiresAt.isAfter(observedAt)||!RegExp(r'^[A-Z]{2}$').hasMatch(countryCode)||maximumLineLength<1||maximumLineLength>200||!{'none','digits','alphanumeric','uk','us','ca'}.contains(postalPattern))"
+  "PaymentCountryAddressRule": "if(revision<1||!expiresAt.isAfter(observedAt)||!RegExp(r'^[A-Z]{2}$').hasMatch(countryCode)||maximumLineLength<1||maximumLineLength>200||!{'none','digits','alphanumeric','uk','us','ca'}.contains(postalPattern))",
+  "PaymentBillingAddress": "if(revision<1||!RegExp(r'^[A-Z]{2}$').hasMatch(countryCode))"
 }

@@ -3394,5 +3394,65 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentBillingAddress",
+    "billing_address",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "countryCode",
+        "String",
+        true,
+        null
+      ],
+      [
+        "line1",
+        "String",
+        true,
+        null
+      ],
+      [
+        "city",
+        "String",
+        true,
+        null
+      ],
+      [
+        "line2",
+        "String",
+        false,
+        null
+      ],
+      [
+        "regionCode",
+        "String",
+        false,
+        null
+      ],
+      [
+        "postalCode",
+        "String",
+        false,
+        null
+      ],
+      [
+        "updatedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "revision",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
