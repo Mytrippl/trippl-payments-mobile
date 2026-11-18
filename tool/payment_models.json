@@ -1510,5 +1510,59 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentNextAction",
+    "next_action",
+    [
+      [
+        "intentId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "kind",
+        "String",
+        true,
+        null
+      ],
+      [
+        "observedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "expiresAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "requiresSdk",
+        "bool",
+        false,
+        true
+      ],
+      [
+        "returnUri",
+        "String",
+        false,
+        null
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "revision",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
