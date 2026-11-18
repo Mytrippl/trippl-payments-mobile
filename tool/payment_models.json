@@ -6640,5 +6640,65 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentActivitySummary",
+    "activity_summary",
+    [
+      [
+        "evaluatedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "currency",
+        "String",
+        true,
+        null
+      ],
+      [
+        "charges",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "refunds",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "count",
+        "int",
+        true,
+        null
+      ],
+      [
+        "pendingIds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "attentionIds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "complete",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
+      ]
+    ]
   ]
 ]
