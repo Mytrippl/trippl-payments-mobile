@@ -57,5 +57,6 @@
   "PaymentTaxIdentity": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'pending','verified','unverified','unavailable'}.contains(status)||!RegExp(r'^[A-Z]{2}$').hasMatch(countryCode))",
   "PaymentTaxAssessment": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
   "PaymentInvoiceLine": "if(quantity<1||quantity>100)",
-  "PaymentInvoiceTax": "if(rateBasisPoints>10000)"
+  "PaymentInvoiceTax": "if(rateBasisPoints>10000)",
+  "PaymentInvoice": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'draft','open','paid','void','uncollectible','unknown'}.contains(status)||dueAt!=null&&dueAt!.isBefore(issuedAt))"
 }
