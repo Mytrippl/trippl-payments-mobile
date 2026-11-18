@@ -97,5 +97,6 @@
   "PaymentLedgerStatement": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||periodEnd.isBefore(periodStart))",
   "PaymentLedgerReconciliation": "if(paymentConfirmed)",
   "PaymentAccountSnapshot": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
-  "PaymentCachePolicy": "if(schemaVersion!=1||maximumAgeSeconds<1||maximumAgeSeconds>3600||maximumBytes<1024||maximumBytes>1000000||maximumEntries<1||maximumEntries>100)"
+  "PaymentCachePolicy": "if(schemaVersion!=1||maximumAgeSeconds<1||maximumAgeSeconds>3600||maximumBytes<1024||maximumBytes>1000000||maximumEntries<1||maximumEntries>100)",
+  "PaymentCacheEnvelope": "if(!{'test','live'}.contains(environment)||schemaVersion!=1||!expiresAt.isAfter(storedAt)||!offline)"
 }

@@ -126,3 +126,4 @@ export 'payment_core/models/ledger_statement.dart';
 export 'payment_core/models/ledger_reconciliation.dart';
 export 'payment_core/models/account_snapshot.dart';
 export 'payment_core/models/cache_policy.dart';
+export 'payment_core/models/cache_envelope.dart';

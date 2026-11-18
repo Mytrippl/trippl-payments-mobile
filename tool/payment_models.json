@@ -7126,5 +7126,65 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentCacheEnvelope",
+    "cache_envelope",
+    [
+      [
+        "keyFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "environment",
+        "String",
+        true,
+        null
+      ],
+      [
+        "snapshot",
+        "PaymentAccountSnapshot",
+        true,
+        null
+      ],
+      [
+        "storedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "expiresAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "digest",
+        "String",
+        true,
+        null
+      ],
+      [
+        "schemaVersion",
+        "int",
+        false,
+        1
+      ],
+      [
+        "offline",
+        "bool",
+        false,
+        true
+      ]
+    ]
   ]
 ]
