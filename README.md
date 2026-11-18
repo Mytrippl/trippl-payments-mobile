@@ -51,6 +51,38 @@ Receipt validation checks the verified intent, order total and receipt lines. Re
 
 Refund records support read-only totals for completed, pending and remaining amounts. Incomplete history leaves the remaining amount unknown. This module does not create refunds or perform capture operations.
 
+## Payment Account
+
+The account layer brings invoice history, billing details, scheduled payments, disputes and transaction activity into one scoped workspace. Every backend section is checked against the authenticated customer, environment, access policy and observation expiry.
+
+Billing changes are prepared as revisioned review drafts. Country address rules cover required fields, permitted regions and supported postal formats. Tax identity views use masked references.
+
+Invoice processing reconciles quantities, line totals, inclusive tax, declared tax and settlement balances. Statement and ledger views keep posted entries separate from pending activity and check opening and closing balances. CSV exports escape spreadsheet formulas and include account references, so exports require the host's account-data handling policy.
+
+## Deposits and Installments
+
+Deposit quotes bind the deposit and remaining balance to an order fingerprint and current backend terms. Percentage calculations use the declared basis points with minor-unit truncation, subject to the minimum deposit. The backend must return a matching quote.
+
+Installment plans validate amounts, sequence, due dates and settled intent references. Plan changes preserve paid installments. Customer consent binds the exact schedule and terms revision; a changed plan needs another review.
+
+Schedules and reminders are informational. The mobile module does not schedule automatic charges or collect a mandate.
+
+## Refund Review and Disputes
+
+Refund drafts check the verified order, allowed reason and requested amount. Eligibility requires complete matching refund history. Backend previews bind fees, net amounts and warnings to the exact draft.
+
+An approved mobile review can be passed through the host's review provider. Its outcome is acceptance for backend review, rejection, pending or unknown. Acceptance for review does not mean a refund was created. Uncertain submissions require lookup and are not submitted again automatically.
+
+Dispute views cover response deadlines, ordered events and host-managed evidence references. Support handoffs prepare context for a user action; they do not upload files, submit evidence or send messages.
+
+## Offline History and Notifications
+
+Account caching is opt-in. Restored snapshots and their nested records lose backend-verification flags and remain informational, including when the cache is still within its retention period. Offline restoration still requires a current session and the appropriate access policy.
+
+Session changes fence late account and review responses. Notification preferences apply local quiet hours, category choices and deduplication before presenting a backend event. Presentation does not send a notification or confirm a payment.
+
+See [payment account integration](docs/ACCOUNT.md) for provider contracts, permissions and review handling.
+
 ## Repository Structure
 
 | Location | Contents |
@@ -97,7 +129,7 @@ python3 tool/generate_payment_models.py
 dart format --language-version=3.10 lib/payment_core/models
 ```
 
-The browser smoke check compiles the pure Dart core to JavaScript and exercises fake checkout, exact amounts and local recovery. It does not exercise Payment Sheet, Apple Pay or Google Pay.
+The browser smoke checks compile the pure Dart core to JavaScript and exercise fake checkout, exact amounts, local recovery, account authorization, offline history, review requests, FX, ledger reconciliation and CSV export. It does not exercise Payment Sheet, Apple Pay or Google Pay.
 
 The standalone analyzer excludes FlutterFlow custom-code imports because the exported application, generated Firebase code and Flutter plugin dependencies are not bundled here. Compatibility checks preserve original parameter interfaces and the widget constructor, and tests compile extracted pure helper bodies. The full FlutterFlow application must be built and tested with its actual SDK versions before release.
 
