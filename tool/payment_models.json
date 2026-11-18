@@ -3070,5 +3070,47 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentEnvironment",
+    "environment",
+    [
+      [
+        "mode",
+        "String",
+        true,
+        null
+      ],
+      [
+        "merchantCountry",
+        "String",
+        true,
+        null
+      ],
+      [
+        "publishableKeyFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "configuredAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "sdkReady",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "version",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]

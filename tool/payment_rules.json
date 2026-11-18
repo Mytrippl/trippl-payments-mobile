@@ -44,5 +44,6 @@
   "PaymentPreferences": "if(revision<1)",
   "PaymentPrivacyPolicy": "if(version!=1||maximumAgeHours<1||maximumAgeHours>168||maximumRecords<1||maximumRecords>100)",
   "PaymentAuditEvent": "if(revision<1)",
-  "PaymentCapabilities": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))"
+  "PaymentCapabilities": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
+  "PaymentEnvironment": "if(version!=1||!{'test','live'}.contains(mode)||!RegExp(r'^[A-Z]{2}$').hasMatch(merchantCountry)||!RegExp(r'^[a-f0-9]{64}$').hasMatch(publishableKeyFingerprint))"
 }
