@@ -85,5 +85,6 @@
   "PaymentRefundTimelineEntry": "if(sequence<1||!{'requested','review','pending','succeeded','failed','cancelled','unknown'}.contains(state)||source!='backend')",
   "PaymentRefundTimeline": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
   "PaymentDispute": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'warning','needs_response','under_review','won','lost','closed','unknown'}.contains(status)||responseDueAt!=null&&responseDueAt!.isBefore(openedAt))",
-  "PaymentDisputeEvent": "if(sequence<1)"
+  "PaymentDisputeEvent": "if(sequence<1)",
+  "PaymentDisputeEvidenceReference": "if(!{'test','live'}.contains(environment)||byteCount<1||byteCount>10000000||!{'application/pdf','image/jpeg','image/png'}.contains(mediaType)||!{'receipt','booking','correspondence','other'}.contains(category)||!RegExp(r'^[a-f0-9]{64}$').hasMatch(checksum))"
 }

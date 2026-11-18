@@ -112,3 +112,4 @@ export 'payment_core/models/refund_timeline_entry.dart';
 export 'payment_core/models/refund_timeline.dart';
 export 'payment_core/models/dispute.dart';
 export 'payment_core/models/dispute_event.dart';
+export 'payment_core/models/dispute_evidence_reference.dart';
