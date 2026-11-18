@@ -10,5 +10,6 @@
   "PaymentBillingSummary": "if(revision<1||!{'sdk','backend','unknown'}.contains(source)||countryCode!=null&&!RegExp(r'^[A-Z]{2}$').hasMatch(countryCode!))",
   "PaymentMethodReference": "if(!expiresAt.isAfter(observedAt)||last4!=null&&!RegExp(r'^\\d{4}$').hasMatch(last4!)||expiryMonth!=null&&(expiryMonth!<1||expiryMonth!>12)||!{'test','live'}.contains(environment))",
   "PaymentWalletCapability": "if(!{'applePay','googlePay','card'}.contains(kind)||!expiresAt.isAfter(checkedAt)||!{'test','live'}.contains(environment))",
-  "PaymentSdkConfiguration": "if(version!=1||!RegExp(r'^[A-Z]{2}$').hasMatch(merchantCountry)||!{'test','live'}.contains(environment)||!{'automatic','required','never'}.contains(billingCollection))"
+  "PaymentSdkConfiguration": "if(version!=1||!RegExp(r'^[A-Z]{2}$').hasMatch(merchantCountry)||!{'test','live'}.contains(environment)||!{'automatic','required','never'}.contains(billingCollection))",
+  "PaymentCredentialsReference": "if(revision<1||!expiresAt.isAfter(createdAt)||!{'test','live'}.contains(environment))"
 }
