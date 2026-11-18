@@ -43,5 +43,6 @@
   "PaymentCheckoutSnapshot": "if(schemaVersion!=1||!needsVerification)",
   "PaymentPreferences": "if(revision<1)",
   "PaymentPrivacyPolicy": "if(version!=1||maximumAgeHours<1||maximumAgeHours>168||maximumRecords<1||maximumRecords>100)",
-  "PaymentAuditEvent": "if(revision<1)"
+  "PaymentAuditEvent": "if(revision<1)",
+  "PaymentCapabilities": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))"
 }

@@ -48,3 +48,4 @@ export 'payment_core/models/checkout_snapshot.dart';
 export 'payment_core/models/preferences.dart';
 export 'payment_core/models/privacy_policy.dart';
 export 'payment_core/models/audit_event.dart';
+export 'payment_core/models/capabilities.dart';
