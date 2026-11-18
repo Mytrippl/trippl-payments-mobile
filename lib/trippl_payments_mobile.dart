@@ -37,3 +37,4 @@ export 'payment_core/models/checkout_result.dart';
 export 'payment_core/models/receipt_line.dart';
 export 'payment_core/models/receipt.dart';
 export 'payment_core/models/refund_reference.dart';
+export 'payment_core/models/refund_summary.dart';
