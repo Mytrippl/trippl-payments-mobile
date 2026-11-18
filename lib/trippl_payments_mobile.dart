@@ -135,3 +135,4 @@ export 'payment_core/models/notification_preference.dart';
 export 'payment_core/models/notification_event.dart';
 export 'payment_core/payment_account_guard.dart';
 export 'payment_core/payment_billing_addresses.dart';
+export 'payment_core/payment_billing_profiles.dart';
