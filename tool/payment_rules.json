@@ -1,3 +1,4 @@
 {
-  "PaymentMoney": "if(!RegExp(r'^[A-Z]{3}$').hasMatch(currency)||decimals>4)"
+  "PaymentMoney": "if(!RegExp(r'^[A-Z]{3}$').hasMatch(currency)||decimals>4)",
+  "PaymentCurrencyRule": "if(revision<1||decimals>4||stepMinor<1||operation!='charge'||!RegExp(r'^[A-Z]{3}$').hasMatch(currency)||!expiresAt.isAfter(observedAt)||minimumMinor!=null&&maximumMinor!=null&&minimumMinor!>maximumMinor!)"
 }
