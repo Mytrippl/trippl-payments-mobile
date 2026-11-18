@@ -6226,5 +6226,59 @@
         false
       ]
     ]
+  ],
+  [
+    "PaymentDisputeSummary",
+    "dispute_summary",
+    [
+      [
+        "orderId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "evaluatedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "openIds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "dueSoonIds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "closedIds",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "complete",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "maySubmitEvidence",
+        "bool",
+        false,
+        false
+      ]
+    ]
   ]
 ]
