@@ -11,3 +11,4 @@ export 'payment_core/models/customer_reference.dart';
 export 'payment_core/models/billing_summary.dart';
 export 'payment_core/models/method_reference.dart';
 export 'payment_core/models/wallet_capability.dart';
+export 'payment_core/models/sdk_configuration.dart';
