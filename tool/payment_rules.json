@@ -61,5 +61,6 @@
   "PaymentInvoice": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'draft','open','paid','void','uncollectible','unknown'}.contains(status)||dueAt!=null&&dueAt!.isBefore(issuedAt))",
   "PaymentInvoiceDocument": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||mediaType!='application/pdf'||byteCount<1||byteCount>20000000||!RegExp(r'^[a-f0-9]{64}$').hasMatch(checksum))",
   "PaymentInvoiceFilter": "if(limit<1||limit>100||issuedFrom!=null&&issuedUntil!=null&&issuedUntil!.isBefore(issuedFrom!)||statuses.any((s)=>!{'draft','open','paid','void','uncollectible','unknown'}.contains(s)))",
-  "PaymentInvoicePage": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||complete&&cursor!=null)"
+  "PaymentInvoicePage": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||complete&&cursor!=null)",
+  "PaymentStatementEntry": "if(!{'charge','refund','authorization','adjustment'}.contains(kind)||!{'pending','posted','reversed','unknown'}.contains(status))"
 }
