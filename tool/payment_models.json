@@ -1606,5 +1606,53 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentReturnSignal",
+    "return_signal",
+    [
+      [
+        "receivedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "kind",
+        "String",
+        true,
+        null
+      ],
+      [
+        "intentId",
+        "String",
+        false,
+        null
+      ],
+      [
+        "stateFingerprint",
+        "String",
+        false,
+        null
+      ],
+      [
+        "needsVerification",
+        "bool",
+        false,
+        true
+      ],
+      [
+        "paymentConfirmed",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
+      ]
+    ]
   ]
 ]
