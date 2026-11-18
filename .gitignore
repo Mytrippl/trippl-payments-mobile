@@ -5,3 +5,5 @@ build/
 .flutter-plugins-dependencies
 .packages
 .pub/
+dist/
+coverage/
