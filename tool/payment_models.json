@@ -5872,5 +5872,59 @@
         false
       ]
     ]
+  ],
+  [
+    "PaymentRefundTimelineEntry",
+    "refund_timeline_entry",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "refundId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "occurredAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "state",
+        "String",
+        true,
+        null
+      ],
+      [
+        "label",
+        "String",
+        true,
+        null
+      ],
+      [
+        "reasonCode",
+        "String",
+        false,
+        null
+      ],
+      [
+        "source",
+        "String",
+        false,
+        "backend"
+      ],
+      [
+        "sequence",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
