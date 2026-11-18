@@ -1936,5 +1936,41 @@
         false
       ]
     ]
+  ],
+  [
+    "PaymentReadFailure",
+    "read_failure",
+    [
+      [
+        "code",
+        "String",
+        true,
+        null
+      ],
+      [
+        "occurredAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "retryable",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "retryAfterSeconds",
+        "int",
+        false,
+        null
+      ],
+      [
+        "operation",
+        "String",
+        false,
+        "read"
+      ]
+    ]
   ]
 ]

@@ -30,3 +30,4 @@ export 'payment_core/models/retry_policy.dart';
 export 'payment_core/models/read_policy.dart';
 export 'payment_core/models/read_request.dart';
 export 'payment_core/models/read_page.dart';
+export 'payment_core/models/read_failure.dart';
