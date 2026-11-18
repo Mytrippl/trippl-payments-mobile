@@ -32,5 +32,6 @@
   "PaymentReadState": "if(generation<1||attempt<1||attempt>3||!{'loading','ready','failed','cancelled'}.contains(state)||state=='ready'&&page==null||state=='failed'&&failure==null)",
   "PaymentCheckoutState": "if(revision<1||!{'idle','preparing','ready','presenting','verifying','paid','pending','authorized','cancelled','failed','uncertain'}.contains(state))",
   "PaymentCheckoutResult": "if(paid&&!serverVerified||bookingConfirmed&&!paid)",
-  "PaymentReceiptLine": "if(quantity<1||quantity>100||!{'item','tax','fee','discount','credit'}.contains(kind))"
+  "PaymentReceiptLine": "if(quantity<1||quantity>100||!{'item','tax','fee','discount','credit'}.contains(kind))",
+  "PaymentReceipt": "if(revision<1||!expiresAt.isAfter(observedAt)||issuedAt.isAfter(observedAt)||!{'test','live'}.contains(environment))"
 }

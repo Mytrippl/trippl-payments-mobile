@@ -35,3 +35,4 @@ export 'payment_core/models/read_state.dart';
 export 'payment_core/models/checkout_state.dart';
 export 'payment_core/models/checkout_result.dart';
 export 'payment_core/models/receipt_line.dart';
+export 'payment_core/models/receipt.dart';
