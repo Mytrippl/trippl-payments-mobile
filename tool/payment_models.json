@@ -3280,5 +3280,41 @@
         []
       ]
     ]
+  ],
+  [
+    "PaymentReceiptPolicy",
+    "receipt_policy",
+    [
+      [
+        "allowedHosts",
+        "List<String>",
+        true,
+        null
+      ],
+      [
+        "allowedPathPrefixes",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "allowQuery",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "maximumAgeSeconds",
+        "int",
+        false,
+        300
+      ],
+      [
+        "version",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]

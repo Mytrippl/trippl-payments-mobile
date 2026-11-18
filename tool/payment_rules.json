@@ -47,5 +47,6 @@
   "PaymentCapabilities": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
   "PaymentEnvironment": "if(version!=1||!{'test','live'}.contains(mode)||!RegExp(r'^[A-Z]{2}$').hasMatch(merchantCountry)||!RegExp(r'^[a-f0-9]{64}$').hasMatch(publishableKeyFingerprint))",
   "PaymentCheckoutReview": "if(revision<1||quoteRevision<1||!expiresAt.isAfter(reviewedAt))",
-  "PaymentReadCollection": "if(pages<1||pages>20||!expiresAt.isAfter(collectedAt)||!{'intent','methods','receipt','refunds','currencies'}.contains(mode)||!{'test','live'}.contains(environment))"
+  "PaymentReadCollection": "if(pages<1||pages>20||!expiresAt.isAfter(collectedAt)||!{'intent','methods','receipt','refunds','currencies'}.contains(mode)||!{'test','live'}.contains(environment))",
+  "PaymentReceiptPolicy": "if(version!=1||allowedHosts.isEmpty||maximumAgeSeconds<1||maximumAgeSeconds>3600||allowedHosts.any((h)=>h.isEmpty||h!=h.toLowerCase()||h.contains('/')||h.contains('*'))||allowedPathPrefixes.any((p)=>!p.startsWith('/')||p.contains('..')))"
 }

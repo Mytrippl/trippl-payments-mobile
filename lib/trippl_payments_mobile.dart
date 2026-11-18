@@ -69,3 +69,5 @@ export 'payment_core/payment_read_controller.dart';
 export 'payment_core/payment_backend_gateway.dart';
 export 'payment_core/payment_attempts.dart';
 export 'payment_core/payment_pending_store.dart';
+export 'payment_core/models/receipt_policy.dart';
+export 'payment_core/payment_presentation.dart';
