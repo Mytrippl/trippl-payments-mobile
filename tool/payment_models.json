@@ -1913,7 +1913,7 @@
       ],
       [
         "refunds",
-        "List<PaymentMoney>",
+        "List<PaymentRefundReference>",
         false,
         []
       ],
@@ -1934,6 +1934,18 @@
         "bool",
         false,
         false
+      ],
+      [
+        "receipts",
+        "List<PaymentReceipt>",
+        false,
+        []
+      ],
+      [
+        "currencyCatalog",
+        "PaymentCurrencyCatalog",
+        false,
+        null
       ]
     ]
   ],
@@ -3176,6 +3188,96 @@
         "int",
         false,
         1
+      ]
+    ]
+  ],
+  [
+    "PaymentReadCollection",
+    "read_collection",
+    [
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "requestFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "mode",
+        "String",
+        true,
+        null
+      ],
+      [
+        "environment",
+        "String",
+        true,
+        null
+      ],
+      [
+        "collectedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "expiresAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "intents",
+        "List<PaymentIntent>",
+        false,
+        []
+      ],
+      [
+        "methods",
+        "List<PaymentMethodReference>",
+        false,
+        []
+      ],
+      [
+        "receipts",
+        "List<PaymentReceipt>",
+        false,
+        []
+      ],
+      [
+        "refunds",
+        "List<PaymentRefundReference>",
+        false,
+        []
+      ],
+      [
+        "currencyCatalog",
+        "PaymentCurrencyCatalog",
+        false,
+        null
+      ],
+      [
+        "pages",
+        "int",
+        false,
+        1
+      ],
+      [
+        "complete",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
       ]
     ]
   ]

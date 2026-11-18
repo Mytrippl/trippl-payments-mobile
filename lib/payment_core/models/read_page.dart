@@ -1,9 +1,11 @@
 // Generated typed payment records. Edit tool/payment_models.json and regenerate.
 import '../payment_codec.dart';
 import '../payment_issue.dart';
+import 'currency_catalog.dart';
 import 'intent.dart';
 import 'method_reference.dart';
-import 'money.dart';
+import 'receipt.dart';
+import 'refund_reference.dart';
 
 class PaymentReadPage {
   PaymentReadPage({
@@ -15,13 +17,16 @@ class PaymentReadPage {
     required this.expiresAt,
     List<PaymentIntent> intents = const [],
     List<PaymentMethodReference> methods = const [],
-    List<PaymentMoney> refunds = const [],
+    List<PaymentRefundReference> refunds = const [],
     this.cursor,
     this.complete = false,
     this.serverVerified = false,
+    List<PaymentReceipt> receipts = const [],
+    this.currencyCatalog,
   }) : intents = List.unmodifiable(intents),
        methods = List.unmodifiable(methods),
-       refunds = List.unmodifiable(refunds);
+       refunds = List.unmodifiable(refunds),
+       receipts = List.unmodifiable(receipts);
 
   final String id;
   final String scopeFingerprint;
@@ -31,10 +36,12 @@ class PaymentReadPage {
   final DateTime expiresAt;
   final List<PaymentIntent> intents;
   final List<PaymentMethodReference> methods;
-  final List<PaymentMoney> refunds;
+  final List<PaymentRefundReference> refunds;
   final String? cursor;
   final bool complete;
   final bool serverVerified;
+  final List<PaymentReceipt> receipts;
+  final PaymentCurrencyCatalog? currencyCatalog;
 
   factory PaymentReadPage.fromJson(Map<String, Object?> json) {
     PaymentCodec.keys(json, {
@@ -50,6 +57,8 @@ class PaymentReadPage {
       "cursor",
       "complete",
       "serverVerified",
+      "receipts",
+      "currencyCatalog",
     });
     final value = PaymentReadPage(
       id: PaymentCodec.text(json, 'id', required: true)!,
@@ -86,13 +95,26 @@ class PaymentReadPage {
           PaymentCodec.list(
             json,
             'refunds',
-            (v) => PaymentMoney.fromJson(PaymentCodec.object(v)),
+            (v) => PaymentRefundReference.fromJson(PaymentCodec.object(v)),
             maximum: 100,
           ) ??
           [],
       cursor: PaymentCodec.text(json, 'cursor'),
       complete: PaymentCodec.boolean(json, 'complete') ?? false,
       serverVerified: PaymentCodec.boolean(json, 'serverVerified') ?? false,
+      receipts:
+          PaymentCodec.list(
+            json,
+            'receipts',
+            (v) => PaymentReceipt.fromJson(PaymentCodec.object(v)),
+            maximum: 100,
+          ) ??
+          [],
+      currencyCatalog: json['currencyCatalog'] == null
+          ? null
+          : PaymentCurrencyCatalog.fromJson(
+              PaymentCodec.object(json['currencyCatalog']),
+            ),
     );
     final issues = value.validate();
     if (issues.any((i) => i.severity == PaymentSeverity.error))
@@ -130,12 +152,14 @@ class PaymentReadPage {
     DateTime? expiresAt,
     List<PaymentIntent>? intents,
     List<PaymentMethodReference>? methods,
-    List<PaymentMoney>? refunds,
+    List<PaymentRefundReference>? refunds,
     String? cursor,
     bool? complete,
     bool? serverVerified,
+    List<PaymentReceipt>? receipts,
+    PaymentCurrencyCatalog? currencyCatalog,
   }) {
-    final clearableFields = <String>{"cursor"};
+    final clearableFields = <String>{"cursor", "currencyCatalog"};
     if (clear.any((key) => !clearableFields.contains(key)))
       throw const FormatException('Only optional fields may be cleared');
     return PaymentReadPage(
@@ -151,6 +175,10 @@ class PaymentReadPage {
       cursor: clear.contains('cursor') ? null : (cursor ?? this.cursor),
       complete: (complete ?? this.complete),
       serverVerified: (serverVerified ?? this.serverVerified),
+      receipts: (receipts ?? this.receipts),
+      currencyCatalog: clear.contains('currencyCatalog')
+          ? null
+          : (currencyCatalog ?? this.currencyCatalog),
     );
   }
 
@@ -264,6 +292,39 @@ class PaymentReadPage {
           const PaymentIssue('cursor', 'text', 'Use nonempty bounded text'),
         );
     }
+    {
+      if (receipts.length > 100)
+        validationIssues.add(
+          const PaymentIssue(
+            'receipts',
+            'count',
+            'Payment list is empty or exceeds its limit',
+          ),
+        );
+    }
+    {
+      for (var i = 0; i < receipts.length; i++)
+        for (final issue in receipts[i].validate())
+          validationIssues.add(
+            PaymentIssue(
+              'receipts[$i].${issue.field}',
+              issue.code,
+              issue.message,
+              severity: issue.severity,
+            ),
+          );
+    }
+    if (currencyCatalog != null) {
+      for (final issue in currencyCatalog!.validate())
+        validationIssues.add(
+          PaymentIssue(
+            'currencyCatalog.${issue.field}',
+            issue.code,
+            issue.message,
+            severity: issue.severity,
+          ),
+        );
+    }
     if (!expiresAt.isAfter(observedAt) ||
         complete && cursor != null ||
         !{'test', 'live'}.contains(environment))
@@ -290,6 +351,8 @@ class PaymentReadPage {
     if (cursor != null) "cursor": cursor,
     "complete": complete,
     "serverVerified": serverVerified,
+    "receipts": receipts.map((item) => item.toJson()).toList(),
+    if (currencyCatalog != null) "currencyCatalog": currencyCatalog!.toJson(),
   };
 
   @override
