@@ -610,5 +610,65 @@
         null
       ]
     ]
+  ],
+  [
+    "PaymentWalletCapability",
+    "wallet_capability",
+    [
+      [
+        "kind",
+        "String",
+        true,
+        null
+      ],
+      [
+        "supported",
+        "bool",
+        true,
+        null
+      ],
+      [
+        "checkedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "expiresAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "environment",
+        "String",
+        true,
+        null
+      ],
+      [
+        "merchantCountry",
+        "String",
+        false,
+        null
+      ],
+      [
+        "currency",
+        "String",
+        false,
+        null
+      ],
+      [
+        "source",
+        "String",
+        false,
+        "sdk"
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
+      ]
+    ]
   ]
 ]

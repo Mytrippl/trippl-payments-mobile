@@ -10,3 +10,4 @@ export 'payment_core/models/quote.dart';
 export 'payment_core/models/customer_reference.dart';
 export 'payment_core/models/billing_summary.dart';
 export 'payment_core/models/method_reference.dart';
+export 'payment_core/models/wallet_capability.dart';
