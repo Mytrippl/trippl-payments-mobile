@@ -45,3 +45,4 @@ export 'payment_core/models/pending_reference.dart';
 export 'payment_core/models/resume_request.dart';
 export 'payment_core/models/reconciliation.dart';
 export 'payment_core/models/checkout_snapshot.dart';
+export 'payment_core/models/preferences.dart';

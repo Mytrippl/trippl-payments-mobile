@@ -40,5 +40,6 @@
   "PaymentPendingReference": "if(schemaVersion!=1||!expiresAt.isAfter(savedAt)||!{'test','live'}.contains(environment))",
   "PaymentResumeRequest": "if(!readOnly||!{'test','live'}.contains(environment))",
   "PaymentReconciliation": "if(!{'matched','mismatch','pending','unknown'}.contains(state))",
-  "PaymentCheckoutSnapshot": "if(schemaVersion!=1||!needsVerification)"
+  "PaymentCheckoutSnapshot": "if(schemaVersion!=1||!needsVerification)",
+  "PaymentPreferences": "if(revision<1)"
 }

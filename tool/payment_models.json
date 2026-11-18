@@ -2866,5 +2866,47 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentPreferences",
+    "preferences",
+    [
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "updatedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "language",
+        "String",
+        false,
+        "en"
+      ],
+      [
+        "showSavedMethods",
+        "bool",
+        false,
+        true
+      ],
+      [
+        "preferWallet",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "revision",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
