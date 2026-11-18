@@ -16,5 +16,6 @@
   "PaymentAllocation": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
   "PaymentAttempt": "if(revision<1||updatedAt.isBefore(createdAt)||!{'created','allocating','allocated','presenting','verifying','pending','completed','cancelled','failed','uncertain'}.contains(state))",
   "PaymentIntent": "if(revision<1||orderRevision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
-  "PaymentVerificationRequest": "if(minimumRevision<1||!{'test','live'}.contains(environment))"
+  "PaymentVerificationRequest": "if(minimumRevision<1||!{'test','live'}.contains(environment))",
+  "PaymentWebhookAcknowledgement": "if(revision<1||verifiedAt.isBefore(receivedAt))"
 }
