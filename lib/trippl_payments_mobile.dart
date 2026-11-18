@@ -38,3 +38,4 @@ export 'payment_core/models/receipt_line.dart';
 export 'payment_core/models/receipt.dart';
 export 'payment_core/models/refund_reference.dart';
 export 'payment_core/models/refund_summary.dart';
+export 'payment_core/models/amount_breakdown.dart';
