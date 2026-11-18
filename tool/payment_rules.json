@@ -22,5 +22,6 @@
   "PaymentVerification": "if(revision<1||!expiresAt.isAfter(observedAt))",
   "PaymentNextAction": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'authenticate','awaitProcessing','provideMethod','confirm','none','unknown'}.contains(kind))",
   "PaymentReturnPolicy": "if(version!=1||allowedSchemes.any((s)=>!{'https','mytrippl'}.contains(s)))",
-  "PaymentReturnSignal": "if(paymentConfirmed||!{'successMarker','cancelMarker','unknown'}.contains(kind))"
+  "PaymentReturnSignal": "if(paymentConfirmed||!{'successMarker','cancelMarker','unknown'}.contains(kind))",
+  "PaymentError": "if(!RegExp(r'^[A-Za-z0-9_-]{1,80}$').hasMatch(code)||declineCode!=null&&!RegExp(r'^[A-Za-z0-9_-]{1,80}$').hasMatch(declineCode!))"
 }

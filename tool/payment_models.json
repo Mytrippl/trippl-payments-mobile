@@ -1654,5 +1654,65 @@
         []
       ]
     ]
+  ],
+  [
+    "PaymentError",
+    "error",
+    [
+      [
+        "code",
+        "String",
+        true,
+        null
+      ],
+      [
+        "category",
+        "String",
+        true,
+        null
+      ],
+      [
+        "occurredAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "retryable",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "cancelled",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "requiresUserAction",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "requiresVerification",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "declineCode",
+        "String",
+        false,
+        null
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
+      ]
+    ]
   ]
 ]
