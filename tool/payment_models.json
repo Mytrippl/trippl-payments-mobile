@@ -7084,5 +7084,47 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentCachePolicy",
+    "cache_policy",
+    [
+      [
+        "enabled",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "maximumAgeSeconds",
+        "int",
+        false,
+        300
+      ],
+      [
+        "maximumBytes",
+        "int",
+        false,
+        500000
+      ],
+      [
+        "maximumEntries",
+        "int",
+        false,
+        20
+      ],
+      [
+        "allowOfflineDisplay",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "schemaVersion",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
