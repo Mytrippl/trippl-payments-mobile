@@ -7246,5 +7246,53 @@
         true
       ]
     ]
+  ],
+  [
+    "PaymentAccessPolicy",
+    "access_policy",
+    [
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "customerId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "permissions",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "observedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "expiresAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "serverVerified",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "revision",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
