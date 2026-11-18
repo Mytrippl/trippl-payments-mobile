@@ -1564,5 +1564,47 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentReturnPolicy",
+    "return_policy",
+    [
+      [
+        "allowedSchemes",
+        "List<String>",
+        true,
+        null
+      ],
+      [
+        "allowedHosts",
+        "List<String>",
+        true,
+        null
+      ],
+      [
+        "allowedPaths",
+        "List<String>",
+        true,
+        null
+      ],
+      [
+        "allowedQueryKeys",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "requireState",
+        "bool",
+        false,
+        true
+      ],
+      [
+        "version",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]

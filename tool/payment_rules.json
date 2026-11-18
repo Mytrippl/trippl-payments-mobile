@@ -20,5 +20,6 @@
   "PaymentWebhookAcknowledgement": "if(revision<1||verifiedAt.isBefore(receivedAt))",
   "PaymentOrderBinding": "if(orderRevision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
   "PaymentVerification": "if(revision<1||!expiresAt.isAfter(observedAt))",
-  "PaymentNextAction": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'authenticate','awaitProcessing','provideMethod','confirm','none','unknown'}.contains(kind))"
+  "PaymentNextAction": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'authenticate','awaitProcessing','provideMethod','confirm','none','unknown'}.contains(kind))",
+  "PaymentReturnPolicy": "if(version!=1||allowedSchemes.any((s)=>!{'https','mytrippl'}.contains(s)))"
 }
