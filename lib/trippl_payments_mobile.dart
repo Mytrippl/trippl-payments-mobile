@@ -132,3 +132,4 @@ export 'payment_core/models/access_policy.dart';
 export 'payment_core/models/operation_ticket.dart';
 export 'payment_core/models/operation_result.dart';
 export 'payment_core/models/notification_preference.dart';
+export 'payment_core/models/notification_event.dart';
