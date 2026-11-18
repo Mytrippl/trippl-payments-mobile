@@ -1,392 +1,118 @@
 # Trippl Payments Mobile
 
-Mobile-side payment initialization, Stripe integration, payment confirmation, transaction-state processing, amount and currency handling, refunds, receipts, validation, and card-entry components used within Mytrippl.
+Trippl Payments Mobile contains Mytrippl's mobile payment actions, card-entry widget and shared checkout logic. It connects service orders to the host application's payment backend and Stripe SDK integration.
 
-This repository contains the custom Dart layer supporting Mytrippl's mobile payment experience. It initializes Stripe payment services, creates payment methods, confirms transactions, presents native payment flows, processes payment amounts and currencies, normalizes PaymentIntent states, interprets payment errors, prepares receipt and refund data, validates payment requests, and provides the custom card-entry interface used across supported Mytrippl booking experiences.
+The repository includes the original FlutterFlow custom-code interfaces alongside a standalone Dart payment core. The core coordinates checkout requests, exact amounts, saved payment references, payment verification and recovery. The host application supplies authentication, network transport, local storage and the installed Stripe SDK.
 
-## Core Capabilities
+## Checkout
 
-### Payment Initialization
+Checkout starts with an order and a current backend quote. The core checks the order revision, line totals, currency rules and account context before requesting an allocation.
 
-Custom actions prepare the payment environment before a transaction begins.
+Each attempt has an opaque identifier and idempotency key. A shared coordinator prevents simultaneous operations on the same order inside the application. An uncertain allocation remains unresolved until the backend identifies its outcome. A timeout, missing lookup result or expired local reference does not authorize another charge.
 
-The module includes:
+Payment Sheet completion returns control to the application, which then requests backend verification. Payment state distinguishes:
 
-- Stripe initialization
-- Payment-flow initialization
-- Payment configuration
-- Mobile payment setup
-- Payment state preparation
+- A completed payment.
+- A payment still processing.
+- An authorized amount awaiting capture.
+- Authentication or payment-method action.
+- A cancelled intent.
+- An unknown or unresolved outcome.
 
-This provides a shared payment layer that can be used by different Mytrippl travel services without duplicating payment initialization logic.
+Payment completion and booking confirmation are separate fields. Return URLs are navigation signals and never establish payment success.
 
-### Stripe Payment Methods
+## Amounts and Orders
 
-The repository contains mobile-side logic for creating Stripe payment methods from payment information collected within the application.
+The Dart core uses integer minor units and explicit decimal strings. It rejects ambiguous formats, excess precision, mixed currencies, invalid quantities and amounts outside the supplied rules.
 
-Payment-method processing includes:
+Merchant currency rules come from the backend catalogue. They include precision, charge increments, minimums, maximums and expiry. The module does not infer which currencies a merchant account currently supports.
 
-- Stripe payment-method creation
-- Card metadata normalization
-- Card-brand presentation
-- Masked card information
-- Card expiry information
-- Wallet identification
-- Apple Pay and Google Pay identification
-- Billing-detail extraction
+Order calculations cover line quantities, taxes, fees, discounts and credits. Included adjustments must be confirmed. A review can be bound to the exact quote revision and its warning codes so a reprice requires another review.
 
-This separates payment-method processing from service-specific booking flows and provides consistent payment-method information throughout the application.
+`taxIncluded` on an item describes its displayed price. It does not split embedded tax out of that price. Separate tax lines and included adjustments contribute additional amounts; the backend must avoid representing the same tax twice.
 
-### Payment Confirmation
+## Payment Methods and Wallets
 
-Custom actions handle the client-side portion of Stripe payment confirmation.
+Saved-method references are checked against the current account, customer, environment and observation expiry. Presentation uses masked card summaries. Card numbers and security codes remain inside the host's native Stripe components.
 
-Responsibilities include:
+Wallet availability combines merchant configuration with current capability records. Apple Pay and Google Pay still require host entitlements, device support and the installed SDK's setup.
 
-- Payment confirmation
-- Payment state handling
-- Stripe confirmation flow integration
-- Processing confirmation results
-- Connecting payment completion with the surrounding booking experience
+## Verification and Recovery
 
-### Payment Sheet
+Backend verification binds the intent to the order, order revision, customer where applicable, currency, total and environment. A succeeded intent must report the expected received amount. Capture authorization is presented separately from a paid result.
 
-The module integrates Stripe's mobile Payment Sheet into Mytrippl's payment flow.
+The optional pending-reference store saves the existing request before allocation. It stores references and request metadata, not SDK credentials. Its digest detects accidental modification; it is not an authentication mechanism or encrypted storage.
 
-Custom actions handle:
+Expired unresolved references remain available for backend lookup. Retention expiry does not imply that the payment failed. The backend must enforce order-level deduplication across devices, restarts and installations, including when local persistence is disabled.
 
-- Payment Sheet initialization
-- Payment Sheet presentation
-- Payment completion states
-- User cancellation states
-- Returning control to the appropriate application flow
+## Receipts and Refunds
 
-### Apple Pay Capability
+Receipt validation checks the verified intent, order total and receipt lines. Receipt links can be restricted to exact approved hosts and path boundaries.
 
-Before presenting supported wallet options, the mobile layer can determine whether Apple Pay is available on the current device.
-
-This allows Mytrippl to adapt the available payment experience according to device capability rather than presenting unsupported payment methods.
-
-### Payment Amount Processing
-
-Payment values are converted between application prices and the formats expected by payment services.
-
-Supporting utilities include:
-
-- Stripe amount conversion
-- Retail-price conversion
-- Subtotal processing
-- Tax processing
-- Service and processing fees
-- Discounts
-- Credits
-- Final payable amount calculation
-- Minor-unit amount preparation
-- Payment adjustment calculation
-
-The amount-processing layer keeps displayed prices separate from the values required by payment processing APIs while providing a consistent representation of transaction totals.
-
-### Currency Processing
-
-Currency-specific payment rules are maintained separately from individual checkout flows.
-
-The module handles:
-
-- Currency-code normalization
-- Supported-currency validation
-- Zero-decimal currencies
-- Minor-unit multipliers
-- Major-to-minor unit conversion
-- Minor-to-major unit conversion
-- Currency symbols
-- Payment amount formatting
-
-This prevents individual booking services from implementing their own currency conversion rules.
-
-### PaymentIntent Status Processing
-
-Stripe PaymentIntent states are converted into application-level payment states that can be consumed consistently by Mytrippl booking flows.
-
-The status layer handles states including:
-
-- Successful payments
-- Processing payments
-- Required authentication
-- Required confirmation
-- Required payment methods
-- Authorized payments awaiting capture
-- Cancelled payments
-- Unknown payment states
-
-Additional status metadata identifies whether a payment is complete, pending, failed, retryable, or requires user action.
-
-### Payment Error Processing
-
-Payment and Stripe errors are converted into structured application errors.
-
-Error processing covers:
-
-- Card declines
-- Insufficient funds
-- Expired cards
-- Incorrect security codes
-- Authentication requirements
-- Network failures
-- Processing failures
-- User cancellation
-- Payment configuration errors
-
-The resulting structure identifies the error category, normalized error code, retryability, and the next action that can be presented to the surrounding payment flow.
-
-### Payment Result Handling
-
-The repository contains utilities for interpreting payment completion and cancellation states.
-
-This includes:
-
-- Successful payment detection
-- Payment success URL handling
-- Payment cancellation URL handling
-- PaymentIntent status interpretation
-- Returning normalized payment states to the application
-
-### Payment Receipts
-
-Completed payment information can be converted into structured receipt data for use by booking and transaction interfaces.
-
-Receipt processing includes:
-
-- Payment identifiers
-- Booking references
-- Service types
-- Payment status
-- Subtotals
-- Taxes
-- Fees
-- Discounts
-- Credits
-- Final totals
-- Payment-method information
-- Transaction date and time
-- Receipt line items
-
-This provides a reusable receipt representation independent of the individual travel service that initiated the payment.
-
-### Refund Processing
-
-The mobile payment layer contains utilities for interpreting refund information and calculating refundable balances.
-
-Refund processing includes:
-
-- Original payment amount
-- Refunded amount
-- Remaining payment amount
-- Partial refunds
-- Full refunds
-- Pending refunds
-- Failed refunds
-- Refund percentages
-- Refund reasons
-- Refund eligibility
-- Available refundable balance
-
-This allows refund states to be represented consistently across different Mytrippl booking services.
-
-### Payment Validation
-
-Payment requests are validated before their values are consumed by later transaction stages.
-
-Validation covers:
-
-- Payment amounts
-- Currency codes
-- PaymentIntent client secrets
-- Payment-method identifiers
-- Booking references
-- Service types
-- Payment completion states
-- Received and expected amounts
-- Card expiry values
-
-Validation results provide structured error information so invalid payment data can be handled before progressing through the payment flow.
-
-### Custom Card Entry
-
-The custom Stripe card-field widget provides card entry within the Flutter mobile interface.
-
-It forms the UI layer between payment details entered by the user and the payment-method creation and confirmation logic maintained by the surrounding actions.
-
-## Payment Processing Flow
-
-The mobile payment layer follows a staged processing model:
-
-```text
-Booking Payment Request
-        │
-        ▼
-Payment Validation
-        │
-        ▼
-Amount & Currency Processing
-        │
-        ▼
-Stripe Initialization
-        │
-        ▼
-Payment Method / Payment Sheet
-        │
-        ▼
-Payment Confirmation
-        │
-        ▼
-PaymentIntent Status
-        │
-        ├── Successful ──► Receipt Processing
-        │
-        ├── Processing ──► Pending State
-        │
-        ├── Action Required ──► User Authentication
-        │
-        └── Failed ──► Error Processing
-                              │
-                              ▼
-                         Retry Decision
-
-Completed Payment
-        │
-        ▼
-Refund Processing
-        │
-        ├── Partial Refund
-        └── Full Refund
-```
-
-This separates payment preparation, Stripe interaction, result interpretation, and post-payment processing into focused components.
+Refund records support read-only totals for completed, pending and remaining amounts. Incomplete history leaves the remaining amount unknown. This module does not create refunds or perform capture operations.
 
 ## Repository Structure
 
-```text
-lib/
-└── custom_code/
-    ├── actions/
-    │   ├── confirm_stripe_payment.dart
-    │   ├── create_stripe_payment_method.dart
-    │   ├── init_payment.dart
-    │   ├── init_stripe.dart
-    │   ├── initialize_stripe.dart
-    │   ├── is_apple_pay_supported.dart
-    │   └── present_stripe_payment_sheet.dart
-    │
-    ├── functions/
-    │   ├── convert_to_stripe_amount.dart
-    │   ├── is_stripe_payment_cancel_u_r_l.dart
-    │   ├── is_stripe_payment_success.dart
-    │   ├── is_stripe_payment_success_u_r_l.dart
-    │   ├── stripe_amount_from_retail.dart
-    │   ├── payment_amount_breakdown.dart
-    │   ├── payment_currency_rules.dart
-    │   ├── payment_intent_status.dart
-    │   ├── payment_error_parser.dart
-    │   ├── payment_method_summary.dart
-    │   ├── payment_receipt_builder.dart
-    │   ├── payment_refund_summary.dart
-    │   └── payment_validation.dart
-    │
-    └── widgets/
-        └── stripe_card_field.dart
+| Location | Contents |
+| --- | --- |
+| `lib/custom_code/actions` | Existing FlutterFlow payment actions |
+| `lib/custom_code/functions` | Existing payment helpers and navigation markers |
+| `lib/custom_code/widgets` | Stripe card-entry widget |
+| `lib/payment_core` | Checkout, backend contracts, money, reads, recovery and presentation |
+| `lib/payment_core/models` | Typed payment records |
+| `lib/trippl_payments_mobile.dart` | Standalone Dart core exports |
+| `test` | Contract, checkout, recovery and compatibility tests |
+| `tool` | Model generation, verification, source inventory and packaging |
+
+## Application Integration
+
+Import the Dart core through `package:trippl_payments_mobile/trippl_payments_mobile.dart`.
+
+Supply a `PaymentBackend` implementation or use `PaymentBackendGateway` with an authenticated `PaymentJsonEndpoint`. The included endpoint paths are integration contracts, not deployed services.
+
+Supply `PaymentNativeSdk` or `PaymentCallbackSdk` callbacks connected to the host's pinned Stripe SDK. Inject a scope shared by the current authenticated account, an explicit test/live configuration and a clock. Share one `PaymentAttemptCoordinator` between checkout screens for that account.
+
+The existing FlutterFlow actions and `StripeCardField` parameter interfaces are preserved. They remain legacy entry points and are not automatically rewired to the new controller. Their existing currency defaults, test/live flags and boolean return values must be reviewed when the host migrates to the core. Use backend currency rules and the verified controller result for new checkout flows.
+
+See [integration notes](docs/INTEGRATION.md) for the request lifecycle and backend responsibilities.
+
+## Development
+
+The standalone core targets Dart 3.10 or later. Verification currently uses Dart 3.13.7.
+
+```sh
+dart pub get --enforce-lockfile
+dart analyze
+dart test
+python3 tool/verify_generated.py
+python3 tool/verify_host_interfaces.py
+python3 tool/verify_legacy_helpers.py
+python3 tool/source_inventory.py
 ```
 
-## Function Responsibilities
+Typed models are generated from `tool/payment_models.json` and `tool/payment_rules.json`. After changing definitions:
 
-### Amount and Currency
+```sh
+python3 tool/generate_payment_models.py
+dart format --language-version=3.10 lib/payment_core/models
+```
 
-#### `payment_amount_breakdown.dart`
+The browser smoke check compiles the pure Dart core to JavaScript and exercises fake checkout, exact amounts and local recovery. It does not exercise Payment Sheet, Apple Pay or Google Pay.
 
-Builds structured payment totals from subtotals, taxes, service fees, processing fees, discounts, and credits. It also calculates payable totals, minor-unit amounts, and transaction adjustments.
+The standalone analyzer excludes FlutterFlow custom-code imports because the exported application, generated Firebase code and Flutter plugin dependencies are not bundled here. Compatibility checks preserve original parameter interfaces and the widget constructor, and tests compile extracted pure helper bodies. The full FlutterFlow application must be built and tested with its actual SDK versions before release.
 
-#### `payment_currency_rules.dart`
+## Source Package
 
-Maintains currency-specific payment behavior including supported currencies, zero-decimal currencies, minor-unit conversion, currency symbols, amount validation, and display formatting.
+After committing source changes:
 
-### Transaction State
+```sh
+python3 tool/package_source.py --output dist
+```
 
-#### `payment_intent_status.dart`
+The command creates a deterministic source archive, checksum and per-file manifest. The archive contains tracked source only. Credentials, dependency caches and build output are excluded.
 
-Converts Stripe PaymentIntent statuses into reusable Mytrippl payment states and identifies successful, pending, retryable, authentication-required, and terminal transaction states.
+## References
 
-#### `payment_error_parser.dart`
-
-Normalizes Stripe and payment errors into structured error categories with retry information and recommended application actions.
-
-### Payment Methods
-
-#### `payment_method_summary.dart`
-
-Converts payment-method information into a consistent representation containing card brand, masked number, expiry information, wallet type, billing information, and payment-method presentation data.
-
-### Receipts
-
-#### `payment_receipt_builder.dart`
-
-Builds structured payment receipt information and receipt line items from completed transaction data.
-
-### Refunds
-
-#### `payment_refund_summary.dart`
-
-Processes full and partial refund states, calculates remaining refundable amounts, evaluates refund eligibility, and produces normalized refund information.
-
-### Validation
-
-#### `payment_validation.dart`
-
-Validates payment requests, completed transaction information, Stripe identifiers, payment amounts, currencies, and card expiry values before they are used by later payment stages.
-
-## Technology
-
-The implementation is written in Dart for the Flutter-based Mytrippl mobile application and integrates with Stripe's mobile payment infrastructure.
-
-The custom-code layer works with Mytrippl's application state, booking flows, payment data, generated Flutter components, and backend payment services.
-
-## Architecture
-
-This repository represents the client-side payment processing and interpretation layer rather than the complete payment system.
-
-The implementation separates payment responsibilities into several areas:
-
-1. Payment requests are validated before processing.
-2. Amounts and currencies are converted into consistent transaction values.
-3. Stripe services and native payment interfaces are initialized.
-4. Payment methods are created or selected.
-5. Transactions are confirmed.
-6. PaymentIntent results are normalized into application states.
-7. Payment errors are interpreted into actionable results.
-8. Successful transactions can be represented as structured receipts.
-9. Subsequent refund information can be normalized and evaluated.
-
-This prevents payment-specific rules from being distributed throughout individual flight, hotel, activity, transport, eSIM, and other booking interfaces.
-
-## Security and Separation of Responsibilities
-
-This repository does not contain Mytrippl's complete server-side payment implementation.
-
-Sensitive transaction creation, server-side payment processing, booking confirmation, provider-specific operations, and protected Stripe credentials are maintained separately by Mytrippl's backend services.
-
-The mobile layer focuses on:
-
-- Preparing payment requests
-- Validating client-side payment information
-- Presenting supported payment interfaces
-- Interacting with Stripe's mobile payment flow
-- Interpreting transaction results
-- Preparing application-level receipt and refund states
-
-This separation keeps sensitive backend payment responsibilities outside the mobile processing layer.
-
-## Project Context
-
-Mytrippl supports multiple travel services with different booking flows while maintaining a shared payment experience.
-
-This repository isolates reusable mobile payment engineering from individual flight, hotel, activity, transport, eSIM, visa, and other service modules. Those experiences can use a common Stripe-based payment layer without embedding payment implementation details throughout the application.
-
-The result is a shared client-side payment architecture covering transaction preparation, amount and currency processing, payment-method handling, confirmation, status interpretation, error processing, receipts, refunds, validation, and card entry.
+- [Stripe currencies and minor units](https://docs.stripe.com/currencies)
+- [PaymentIntent status verification](https://docs.stripe.com/payments/payment-intents/verifying-status)
+- [Stripe idempotent requests](https://docs.stripe.com/api/idempotent_requests)
