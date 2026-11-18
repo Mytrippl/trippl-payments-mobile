@@ -65,7 +65,13 @@ class PaymentAttemptCoordinator {
       throw StateError(
         'Backend cancellation proof required before discarding an attempt',
       );
-    _attempts.remove(_key(scope, attempt.orderId, attempt.environment));
+    PaymentGuard.scope(attempt.scopeFingerprint, scope);
+    final key = _key(scope, attempt.orderId, attempt.environment);
+    if (_attempts[key]?.id != attempt.id ||
+        _attempts[key]?.intentId != attempt.intentId) {
+      throw StateError('Cannot clear a different current checkout attempt');
+    }
+    _attempts.remove(key);
   }
 }
 

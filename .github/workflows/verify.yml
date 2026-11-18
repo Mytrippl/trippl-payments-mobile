@@ -1,0 +1,23 @@
+name: Verify payments core
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: '3.13.7'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: dart pub get --enforce-lockfile
+      - run: dart analyze
+      - run: dart test
+      - run: python3 tool/verify_generated.py
+      - run: python3 tool/verify_host_interfaces.py
+      - run: python3 tool/verify_legacy_helpers.py
+      - run: python3 tool/source_inventory.py
+      - run: mkdir -p .dart_tool/browser && dart compile js -O2 tool/browser_smoke.dart -o .dart_tool/browser/payments.js
+      - run: node -e 'global.self = global; require("./.dart_tool/browser/payments.js");'
+      - run: python3 tool/package_source.py --output dist

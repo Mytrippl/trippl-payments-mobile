@@ -32,18 +32,20 @@ class PaymentSdkAdapter {
     PaymentEnvironment environment,
   ) async {
     if (_busy) throw StateError('Native payment interface already active');
-    PaymentConfiguration.validate(configuration, environment, now: clock());
-    final a = envelope.allocation;
-    PaymentGuard.record(a.validate());
-    PaymentGuard.scope(a.scopeFingerprint, scope);
-    if (a.environment != configuration.environment ||
-        a.credentials.environment != configuration.environment ||
-        a.credentials.orderId != a.orderId ||
-        a.credentials.intentId != a.intentId ||
-        envelope.credentials.reference != a.credentials)
-      throw StateError('SDK allocation credentials or environment mismatch');
     _busy = true;
     try {
+      PaymentConfiguration.validate(configuration, environment, now: clock());
+      final a = envelope.allocation;
+      PaymentGuard.record(a.validate());
+      PaymentGuard.scope(a.scopeFingerprint, scope);
+      if (!a.serverVerified ||
+          !PaymentGuard.fresh(a.observedAt, a.expiresAt, clock()) ||
+          a.environment != configuration.environment ||
+          a.credentials.environment != configuration.environment ||
+          a.credentials.orderId != a.orderId ||
+          a.credentials.intentId != a.intentId ||
+          envelope.credentials.reference != a.credentials)
+        throw StateError('SDK allocation credentials or environment mismatch');
       await sdk.initialize(configuration);
       return await envelope.credentials.use(
         (secret, ephemeral) => sdk.present(a, configuration, secret, ephemeral),

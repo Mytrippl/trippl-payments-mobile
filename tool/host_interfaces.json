@@ -1,0 +1,138 @@
+{
+  "lib/custom_code/actions/create_stripe_payment_method.dart": {
+    "createStripePaymentMethod": ""
+  },
+  "lib/custom_code/actions/init_stripe.dart": {
+    "initStripe": ""
+  },
+  "lib/custom_code/actions/init_payment.dart": {
+    "initPayment": "StringclientSecret"
+  },
+  "lib/custom_code/actions/is_apple_pay_supported.dart": {
+    "isApplePaySupported": ""
+  },
+  "lib/custom_code/actions/confirm_stripe_payment.dart": {
+    "confirmStripePayment": "StringclientSecret"
+  },
+  "lib/custom_code/actions/present_stripe_payment_sheet.dart": {
+    "presentStripePaymentSheet": "StringclientSecret,StringcustomerId,StringephemeralKey,StringmerchantName,"
+  },
+  "lib/custom_code/actions/initialize_stripe.dart": {
+    "initializeStripe": ""
+  },
+  "lib/custom_code/functions/payment_amount_breakdown.dart": {
+    "buildPaymentAmountBreakdown": "{requireddynamicsubtotal,dynamicdiscount,dynamictaxes,dynamicserviceFee,dynamicprocessingFee,dynamiccreditsApplied,Stringcurrency='GBP',}",
+    "calculatePaymentAdjustment": "{requireddynamicoriginalAmount,requireddynamicnewAmount,Stringcurrency='GBP',}",
+    "_moneyValue": "dynamicvalue",
+    "_positiveMoney": "dynamicvalue",
+    "_roundMoney": "numvalue",
+    "_normalizeCurrency": "Stringvalue",
+    "_toMinorUnits": "doubleamount,Stringcurrency"
+  },
+  "lib/custom_code/functions/is_stripe_payment_success_u_r_l.dart": {
+    "isStripePaymentSuccessURL": "StringcurrentUrl"
+  },
+  "lib/custom_code/functions/payment_currency_rules.dart": {
+    "getPaymentCurrencyRules": "dynamiccurrency",
+    "paymentAmountToMinorUnits": "dynamicamount,dynamiccurrency,",
+    "paymentAmountFromMinorUnits": "dynamicamount,dynamiccurrency,",
+    "validatePaymentCurrencyAmount": "{requireddynamicamount,requireddynamiccurrency,dynamicminimumAmount,dynamicmaximumAmount,}",
+    "formatPaymentCurrencyAmount": "dynamicamount,dynamiccurrency,{boolincludeCode=false,}",
+    "_currencyCode": "dynamicvalue",
+    "_parseCurrencyAmount": "dynamicvalue",
+    "_currencySymbol": "Stringcode",
+    "_roundCurrency": "doublevalue"
+  },
+  "lib/custom_code/functions/payment_validation.dart": {
+    "validatePaymentRequest": "{requireddynamicamount,requireddynamiccurrency,dynamicclientSecret,dynamicpaymentMethodId,dynamicbookingReference,dynamicserviceType,boolrequireClientSecret=true,boolrequirePaymentMethod=false,}",
+    "validatePaymentCompletion": "{dynamicpaymentIntentId,dynamicstatus,dynamicamountReceived,dynamicexpectedAmount,dynamiccurrency,}",
+    "validateCardExpiry": "{requireddynamicmonth,requireddynamicyear,}",
+    "_isValidClientSecret": "Stringvalue",
+    "_isValidPaymentMethodId": "Stringvalue",
+    "_isValidPaymentIntentId": "Stringvalue",
+    "_isValidPaymentCurrency": "Stringvalue",
+    "_validationCurrency": "dynamicvalue",
+    "_validationServiceType": "dynamicvalue",
+    "_validationError": "{requiredStringfield,requiredStringcode,requiredStringmessage,}",
+    "_validationAmount": "dynamicvalue",
+    "_validationInteger": "dynamicvalue",
+    "_validationString": "dynamicvalue",
+    "_validationRound": "doublevalue"
+  },
+  "lib/custom_code/functions/is_stripe_payment_success.dart": {
+    "isStripePaymentSuccess": "StringcurrentUrl"
+  },
+  "lib/custom_code/functions/convert_to_stripe_amount.dart": {
+    "convertToStripeAmount": "double?amount,String?currency,"
+  },
+  "lib/custom_code/functions/is_stripe_payment_cancel_u_r_l.dart": {
+    "isStripePaymentCancelURL": "StringcurrentUrl"
+  },
+  "lib/custom_code/functions/payment_method_summary.dart": {
+    "buildPaymentMethodSummary": "dynamicpaymentMethod,",
+    "paymentMethodDisplayText": "dynamicpaymentMethod,",
+    "_paymentMethodMap": "dynamicvalue",
+    "_nestedPaymentMap": "Map<String,dynamic>source,Stringkey,",
+    "_paymentMethodType": "Map<String,dynamic>data,",
+    "_paymentMethodDisplayName": "{requiredStringtype,requiredStringbrand,requiredStringwalletType,}",
+    "_cardBrandLabel": "Stringbrand",
+    "_expiryText": "intmonth,intyear,",
+    "_isPaymentCardExpired": "intmonth,intyear,",
+    "_paymentString": "dynamicvalue",
+    "_paymentInteger": "dynamicvalue",
+    "_emptyPaymentMethodSummary": ""
+  },
+  "lib/custom_code/functions/payment_error_parser.dart": {
+    "parsePaymentError": "dynamicerror",
+    "_errorMap": "dynamicerror",
+    "_firstErrorValue": "Map<String,dynamic>data,List<String>keys,",
+    "_normalizeErrorCode": "Stringvalue",
+    "_paymentErrorCategory": "Stringcode,Stringtype,Stringmessage,",
+    "_isRetryablePaymentError": "Stringcode,Stringcategory,",
+    "_paymentErrorAction": "Stringcode,Stringcategory,",
+    "_defaultPaymentErrorMessage": "Stringcategory",
+    "_paymentErrorResult": "{requiredStringtype,requiredStringcode,requiredStringmessage,requiredboolretryable,}"
+  },
+  "lib/custom_code/functions/payment_intent_status.dart": {
+    "normalizePaymentIntentStatus": "dynamicstatus,{dynamiclastPaymentError,}",
+    "isPaymentIntentSuccessful": "dynamicstatus",
+    "isPaymentIntentPending": "dynamicstatus",
+    "paymentIntentRequiresAction": "dynamicstatus",
+    "paymentIntentStatusLabel": "dynamicstatus,{StringlanguageCode='en',}",
+    "_paymentStatusResult": "{requiredStringrawStatus,requiredStringstate,requiredboolcompleted,requiredboolpending,requiredboolfailed,requiredboolretryable,requiredboolrequiresUserAction,}",
+    "_normalizePaymentStatus": "dynamicstatus"
+  },
+  "lib/custom_code/functions/payment_refund_summary.dart": {
+    "buildPaymentRefundSummary": "{requireddynamicoriginalAmount,requireddynamicrefundedAmount,requireddynamiccurrency,dynamicrefundStatus,dynamicrefundReason,dynamicrefundId,dynamiccreatedAt,}",
+    "calculateRefundEligibility": "{requireddynamicpaidAmount,dynamicalreadyRefunded,dynamicrequestedRefund,boolrefundable=true,}",
+    "refundStatusLabel": "dynamicstatus,{StringlanguageCode='en',}",
+    "_resolveRefundStatus": "dynamicrawStatus,doubleoriginal,doublerefunded,",
+    "_normalizeRefundReason": "dynamicvalue",
+    "_refundDateString": "dynamicvalue",
+    "_refundPositiveAmount": "dynamicvalue",
+    "_refundRound": "numvalue",
+    "_refundCurrency": "dynamicvalue",
+    "_refundString": "dynamicvalue"
+  },
+  "lib/custom_code/functions/payment_receipt_builder.dart": {
+    "buildPaymentReceipt": "{requireddynamicpaymentId,requireddynamicamount,requireddynamiccurrency,dynamicbookingReference,dynamicserviceType,dynamicpaymentStatus,dynamicpaymentMethod,dynamicsubtotal,dynamictaxes,dynamicfees,dynamicdiscount,dynamiccreditsApplied,dynamiccreatedAt,}",
+    "buildPaymentReceiptLineItems": "{requireddynamicsubtotal,dynamictaxes,dynamicfees,dynamicdiscount,dynamiccreditsApplied,requireddynamictotal,requireddynamiccurrency,}",
+    "_receiptLineItem": "{requiredStringkey,requiredStringlabel,requireddoubleamount,requiredStringcurrency,requiredbooldeduction,}",
+    "_receiptPaymentMethod": "dynamicvalue,",
+    "_normalizeReceiptStatus": "dynamicvalue",
+    "_normalizeReceiptServiceType": "dynamicvalue",
+    "_receiptDate": "dynamicvalue",
+    "_receiptDateText": "DateTimevalue",
+    "_receiptTimeText": "DateTimevalue",
+    "_receiptAmount": "dynamicvalue",
+    "_receiptPositiveAmount": "dynamicvalue",
+    "_receiptRound": "doublevalue",
+    "_receiptCurrency": "dynamicvalue",
+    "_receiptString": "dynamicvalue"
+  },
+  "lib/custom_code/functions/stripe_amount_from_retail.dart": {
+    "stripeAmountFromRetail": "dynamicjson"
+  },
+  "lib/custom_code/widgets/stripe_card_field.dart": {},
+  "__widgetConstructor": "constStripeCardField({super.key,this.width,this.height,requiredthis.isDarkMode,requiredthis.locale,});"
+}
