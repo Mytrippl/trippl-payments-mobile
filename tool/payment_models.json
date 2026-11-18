@@ -6778,5 +6778,65 @@
         false
       ]
     ]
+  ],
+  [
+    "PaymentLedgerBalance",
+    "ledger_balance",
+    [
+      [
+        "currency",
+        "String",
+        true,
+        null
+      ],
+      [
+        "openingMinor",
+        "signedAmount",
+        true,
+        null
+      ],
+      [
+        "closingMinor",
+        "signedAmount",
+        true,
+        null
+      ],
+      [
+        "debit",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "credit",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "calculatedAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "reconciled",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "complete",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
+      ]
+    ]
   ]
 ]
