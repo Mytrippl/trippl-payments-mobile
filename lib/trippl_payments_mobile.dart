@@ -5,3 +5,4 @@ export 'payment_core/models/currency_rule.dart';
 export 'payment_core/models/currency_catalog.dart';
 export 'payment_core/models/order_line.dart';
 export 'payment_core/models/adjustment.dart';
+export 'payment_core/models/order.dart';
