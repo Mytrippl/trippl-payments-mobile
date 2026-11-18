@@ -42,5 +42,6 @@
   "PaymentReconciliation": "if(!{'matched','mismatch','pending','unknown'}.contains(state))",
   "PaymentCheckoutSnapshot": "if(schemaVersion!=1||!needsVerification)",
   "PaymentPreferences": "if(revision<1)",
-  "PaymentPrivacyPolicy": "if(version!=1||maximumAgeHours<1||maximumAgeHours>168||maximumRecords<1||maximumRecords>100)"
+  "PaymentPrivacyPolicy": "if(version!=1||maximumAgeHours<1||maximumAgeHours>168||maximumRecords<1||maximumRecords>100)",
+  "PaymentAuditEvent": "if(revision<1)"
 }

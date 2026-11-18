@@ -2944,5 +2944,65 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentAuditEvent",
+    "audit_event",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "scopeFingerprint",
+        "String",
+        true,
+        null
+      ],
+      [
+        "orderId",
+        "String",
+        true,
+        null
+      ],
+      [
+        "operation",
+        "String",
+        true,
+        null
+      ],
+      [
+        "occurredAt",
+        "instant",
+        true,
+        null
+      ],
+      [
+        "state",
+        "String",
+        true,
+        null
+      ],
+      [
+        "attemptId",
+        "String",
+        false,
+        null
+      ],
+      [
+        "reasonCodes",
+        "List<String>",
+        false,
+        []
+      ],
+      [
+        "revision",
+        "int",
+        false,
+        1
+      ]
+    ]
   ]
 ]
