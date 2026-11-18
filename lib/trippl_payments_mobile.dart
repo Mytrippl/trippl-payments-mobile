@@ -150,3 +150,4 @@ export 'payment_core/payment_refund_previews.dart';
 export 'payment_core/payment_refund_timeline.dart';
 export 'payment_core/payment_disputes.dart';
 export 'payment_core/payment_support.dart';
+export 'payment_core/payment_activity.dart';
