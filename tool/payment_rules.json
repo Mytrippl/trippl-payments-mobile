@@ -93,5 +93,6 @@
   "PaymentActivityEntry": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'payment','refund','invoice','dispute','plan','receipt'}.contains(kind))",
   "PaymentActivityFilter": "if(limit<1||limit>100||from!=null&&until!=null&&until!.isBefore(from!)||kinds.any((k)=>!{'payment','refund','invoice','dispute','plan','receipt'}.contains(k)))",
   "PaymentActivityPage": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||complete&&cursor!=null)",
-  "PaymentLedgerEntry": "if(!{'test','live'}.contains(environment)||sequence<1||!{'charge','refund','credit','adjustment'}.contains(kind)||!{'debit','credit'}.contains(direction))"
+  "PaymentLedgerEntry": "if(!{'test','live'}.contains(environment)||sequence<1||!{'charge','refund','credit','adjustment'}.contains(kind)||!{'debit','credit'}.contains(direction))",
+  "PaymentLedgerStatement": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||periodEnd.isBefore(periodStart))"
 }
