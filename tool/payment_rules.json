@@ -36,5 +36,6 @@
   "PaymentReceipt": "if(revision<1||!expiresAt.isAfter(observedAt)||issuedAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
   "PaymentRefundReference": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'pending','requires_action','succeeded','failed','canceled','unknown'}.contains(status)||!{'test','live'}.contains(environment))",
   "PaymentRefundSummary": "if(refundInitiated)",
-  "PaymentMethodSelection": "if(revision<1||!{'newCard','savedMethod','applePay','googlePay'}.contains(kind)||kind=='savedMethod'&&methodId==null||!{'test','live'}.contains(environment))"
+  "PaymentMethodSelection": "if(revision<1||!{'newCard','savedMethod','applePay','googlePay'}.contains(kind)||kind=='savedMethod'&&methodId==null||!{'test','live'}.contains(environment))",
+  "PaymentPendingReference": "if(schemaVersion!=1||!expiresAt.isAfter(savedAt)||!{'test','live'}.contains(environment))"
 }
