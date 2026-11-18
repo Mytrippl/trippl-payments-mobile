@@ -53,5 +53,6 @@
   "PaymentBillingAddress": "if(revision<1||!RegExp(r'^[A-Z]{2}$').hasMatch(countryCode))",
   "PaymentBillingProfile": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment))",
   "PaymentBillingValidation": "if(ruleRevision<1||valid&&missingFields.isNotEmpty||!requiresBackendValidation)",
-  "PaymentBillingPatch": "if(expectedRevision<1||submitted||!{'test','live'}.contains(environment))"
+  "PaymentBillingPatch": "if(expectedRevision<1||submitted||!{'test','live'}.contains(environment))",
+  "PaymentTaxIdentity": "if(revision<1||!expiresAt.isAfter(observedAt)||!{'test','live'}.contains(environment)||!{'pending','verified','unverified','unavailable'}.contains(status)||!RegExp(r'^[A-Z]{2}$').hasMatch(countryCode))"
 }
