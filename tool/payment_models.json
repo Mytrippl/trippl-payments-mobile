@@ -148,5 +148,59 @@
         1
       ]
     ]
+  ],
+  [
+    "PaymentOrderLine",
+    "order_line",
+    [
+      [
+        "id",
+        "String",
+        true,
+        null
+      ],
+      [
+        "label",
+        "String",
+        true,
+        null
+      ],
+      [
+        "unitAmount",
+        "PaymentMoney",
+        true,
+        null
+      ],
+      [
+        "quantity",
+        "int",
+        false,
+        1
+      ],
+      [
+        "kind",
+        "String",
+        false,
+        "item"
+      ],
+      [
+        "serviceId",
+        "String",
+        false,
+        null
+      ],
+      [
+        "taxIncluded",
+        "bool",
+        false,
+        false
+      ],
+      [
+        "description",
+        "String",
+        false,
+        null
+      ]
+    ]
   ]
 ]
